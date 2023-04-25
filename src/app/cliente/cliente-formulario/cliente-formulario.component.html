@@ -1,0 +1,129 @@
+<form class="row g-3 needs-validation" novalidate [formGroup]="formulario">
+  <div class="col-md-12">
+    <label for="nome" class="form-label">Cliente</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nome"
+      placeholder="Nome do Cliente"
+      formControlName="nome"
+      [ngClass]="{'is-invalid': submitted && hasError('nome')}"
+      required
+    />
+    <input
+    type="text"
+    class="form-control"
+    id="cpf"
+    placeholder="cpf do Cliente"
+    formControlName="cpf"
+    [ngClass]="{'is-invalid': submitted && hasError('cpf')}"
+    required
+  />
+  <input
+  type="text"
+  class="form-control"
+  id="email"
+  placeholder="email do Cliente"
+  formControlName="email"
+  [ngClass]="{'is-invalid': submitted && hasError('cpf')}"
+  required
+/>
+  <input
+  type="text"
+  class="form-control"
+  id="telefone"
+  placeholder="Telefone do Cliente"
+  formControlName="telefone"
+  [ngClass]="{'is-invalid': submitted && hasError('telefone')}"
+  required
+  />
+  <input
+  type="text"
+  class="form-control"
+  id="logradouro"
+  placeholder="Logradouro"
+  formControlName="logradouro"
+  [ngClass]="{'is-invalid': submitted && hasError('logradouro')}"
+  required
+  />
+  <input
+  type="text"
+  class="form-control"
+  id="numero"
+  placeholder="Numero"
+  formControlName="numero"
+  [ngClass]="{'is-invalid': submitted && hasError('numero')}"
+  required
+  />
+  <input
+  type="text"
+  class="form-control"
+  id="complemento"
+  placeholder="Complemento"
+  formControlName="complemento"
+  [ngClass]="{'is-invalid': submitted && hasError('complemento')}"
+  required
+  />
+  <input
+  type="text"
+  class="form-control"
+  id="bairro"
+  placeholder="Bairro"
+  formControlName="bairro"
+  [ngClass]="{'is-invalid': submitted && hasError('bairro')}"
+  required
+  />
+  <input
+  type="text"
+  class="form-control"
+  id="cep"
+  placeholder="cep"
+  formControlName="cep"
+  [ngClass]="{'is-invalid': submitted && hasError('cep')}"
+  required
+  />
+  <input
+  type="text"
+  class="form-control"
+  id="nomeMunicipio"
+  placeholder="Municipio"
+  formControlName="Municipio"
+  [ngClass]="{'is-invalid': submitted && hasError('municipio')}"
+  required
+  />
+  <input
+  type="text"
+  class="form-control"
+  id="uf"
+  placeholder="UF"
+  formControlName="uf"
+  [ngClass]="{'is-invalid': submitted && hasError('uf')}"
+  required
+  />
+  <input
+  type="text"
+  class="form-control"
+  id="nomePais"
+  placeholder="Nome Pais"
+  formControlName="nomepais"
+  [ngClass]="{'is-invalid': submitted && hasError('nomePais')}"
+  required
+  />
+  <input
+  type="text"
+  class="form-control"
+  id="dataNascimento"
+  placeholder="DataNascimento"
+  formControlName="dataNascimento"
+  [ngClass]="{'is-invalid': submitted && hasError('dataNascimento')}"
+  required
+  />
+
+  <div class="valid-feedback">Looks good!</div>
+  </div>
+  <div>
+    <button type="submit" class="btn btn-success" (click)="adicionarCliente()">Salvar</button>
+    &nbsp;
+    <button type="button" class="btn btn-default" (click)="onCancel()">Cancelar</button>
+  </div>
+</form>

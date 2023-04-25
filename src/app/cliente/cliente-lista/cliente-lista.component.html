@@ -1,0 +1,35 @@
+<div class="botaototal">
+  <button [routerLink]="'formulario'" type="button" class="btn btn-success btn-lg btn-block">+ Adicionar Novo Cliente</button>
+</div>
+<br>
+
+<!--listagem das categorias-->
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nome</th>
+      <th scope="col">CPF</th>
+      <th scope="col">E-mail</th>
+      <th scope="col">Telefone</th>
+      <th scope="col">Bairro</th>
+      <th scope="col">CEP</th>
+      <th scope="col">Data Nasc.</th>
+      <th scope="col">Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let cliente of cliente">
+      <th>{{cliente.id}}</th>
+      <td>{{cliente.nome}}</td>
+      <td>{{cliente.cpf}}</td>
+      <td>{{cliente.email}}</td>
+      <td>{{cliente.telefone}}</td>
+      <td>{{cliente.bairro}}</td>
+      <td>{{cliente.cep}}</td>
+      <td>{{cliente.dataNascimento}}</td>
+      <td><button type="button" class="btn btn-warning" (click)="atualizarCliente(cliente.id)" >Editar</button>&nbsp;
+          <button type="button" class="btn btn-danger" (click)="deletarCliente(cliente)" >Remover</button></td>
+    </tr>
+  </tbody>
+</table>

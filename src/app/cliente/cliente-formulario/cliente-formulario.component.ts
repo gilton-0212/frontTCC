@@ -1,0 +1,111 @@
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { Component, OnInit } from '@angular/core';
+import { ClienteService } from '../cliente.service';
+
+@Component({
+  selector: 'app-cliente-formulario',
+  templateUrl: './cliente-formulario.component.html',
+  styleUrls: ['./cliente-formulario.component.css']
+})
+export class ClienteFormularioComponent implements OnInit {
+
+  formulario!: FormGroup;
+
+  submitted = false;
+
+  constructor(
+
+    private form: FormBuilder,
+    private clienteService : ClienteService,
+    private router : Router,
+    private route : ActivatedRoute
+
+  ) { }
+
+  ngOnInit(): void {
+
+    const id = this.route.snapshot.params['id'];
+    if (id) {
+      this.preencherFormulario(id);
+    }
+
+    this.formulario= this.form.group({
+      id:             [],
+      nome:           [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      cpf:            [null,[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      email:          [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      telefone:       [null,[Validators.required, Validators.minLength(3), Validators.maxLength(14)]],
+      logradouro:     [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      numero:         [null,[Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+      complemento:    [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      bairro:         [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      cep:            [null,[Validators.required, Validators.minLength(3), Validators.maxLength(8)]],
+      nomeMunicipio:  [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      uf:             [null,[Validators.required, Validators.minLength(3), Validators.maxLength(2)]],
+      nomePais:       [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      dataNascimento: []
+    })
+
+  }
+
+  preencherFormulario(id: number) {
+    this.clienteService.getClienteId(id)
+      .subscribe(result => {
+        this.formulario.patchValue(result);
+
+      },
+        error => console.error(error)
+      );
+  }
+
+  adicionarCliente() {
+
+    const cliente = this.formulario.value;
+
+    //edicao
+    if(cliente.id){
+      this.clienteService.putAtualizarCliente(cliente).subscribe(
+        secesso => {
+          this.router.navigate(['cliente'])
+        },
+        error => console.error(error)
+      );
+    }
+    //adicição
+    else{
+      this.clienteService.postCriarCliente(cliente).subscribe(
+        secesso => {
+          this.router.navigate(['cliente'])
+        },
+        error => console.error(error)
+      );
+    }
+  }
+
+  hasError(field: string){
+    return this.formulario.get(field)?.errors;
+
+  }
+
+  onSubmit(){
+    this.submitted = true;
+    console.log(this.formulario.value);
+    if(this.formulario.valid){
+      console.log('submit');
+      this.clienteService.postCriarCliente(this.formulario.value).subscribe(
+        success =>console.log('sucesso'),
+        erro=> console.error("erro"),
+        () => console.log('request completo')
+        );
+    }
+
+  }
+
+  onCancel(){
+    this.submitted = false;
+    this.formulario.reset();
+
+  }
+
+}
