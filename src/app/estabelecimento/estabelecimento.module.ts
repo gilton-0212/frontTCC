@@ -1,3 +1,4 @@
+import { AutoCompleteModule } from 'primeng/autocomplete';
 import { EstabelecimentoService } from './estabelecimento.service';
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
@@ -6,7 +7,7 @@ import { EstabelecimentoFormularioComponent } from './estabelecimento-formulario
 import { EstabelecimentoRoutes } from './estabelecimento.routing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EstabelecimentoComponent } from './estabelecimento.component';
-import { AutoCompleteModule } from 'primeng/autocomplete';
+
 
 @NgModule({
   imports:[
@@ -14,7 +15,6 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
     EstabelecimentoRoutes,
     AutoCompleteModule,
     ReactiveFormsModule
-
   ],
 
   exports:[],
