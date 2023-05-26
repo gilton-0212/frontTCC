@@ -6,12 +6,14 @@ import { TipoestabelecimentoListaComponent } from './tipoestabelecimento-lista/t
 import { TipoestabelecimentoFormularioComponent } from './tipoestabelecimento-formulario/tipoestabelecimento-formulario.component';
 import { TipoestabelecimentoRoutes } from './tipoestabelecimento.routing';
 import { ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from '../shared/shared.module';
 
 @NgModule({
   imports:[
     CommonModule,
     TipoestabelecimentoRoutes,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
 
   exports:[],

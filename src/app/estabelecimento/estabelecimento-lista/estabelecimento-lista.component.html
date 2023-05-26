@@ -1,35 +1,119 @@
-<div class="botaototal">
-  <button [routerLink]="'formulario'" type="button" class="btn btn-success btn-lg btn-block">+ Adicionar Novo Estabelecimento</button>
-</div>
-<br>
+<html>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<!--listagem das categorias-->
-<table class="table table-striped">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">Nome</th>
-      <th scope="col">Fantasia</th>
-      <th scope="col">CNPJ</th>
-      <th scope="col">Telefone</th>
-      <th scope="col">Bairro</th>
-      <th scope="col">CEP</th>
-      <th scope="col">Categoria</th>
-      <th scope="col">Ações</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let estabelecimento of estabelecimento">
-      <th>{{estabelecimento.id}}</th>
-      <td>{{estabelecimento.nome}}</td>
-      <td>{{estabelecimento.nomeFantasia}}</td>
-      <td>{{estabelecimento.cnpj}}</td>
-      <td>{{estabelecimento.telefone}}</td>
-      <td>{{estabelecimento.bairro}}</td>
-      <td>{{estabelecimento.cep}}</td>
-      <td>{{estabelecimento.tipoEstabelecimento.nome}}</td>
-      <td><button type="button" class="btn btn-warning" (click)="atualizarEstabelecimento(estabelecimento.id)">Editar</button>&nbsp;
-          <button type="button" class="btn btn-danger" (click)="deletarEstabelecimento(estabelecimento)">Remover</button></td>
-    </tr>
-  </tbody>
-</table>
+<body>
+<section>
+  <div class="col col-md-4">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" routerLink="/gestao" href="#">GESTÃO</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a routerLink="/cliente" class="nav-link" href="#"
+                  >Coletas</a
+                >
+              </li>
+              <li class="nav-item">
+                <a routerLink="/tipoestabelecimento" class="nav-link"
+                  >Categorias de Estabelecimento</a
+                >
+              </li>
+              <li class="nav-item">
+                <a routerLink="/estabelecimento" class="nav-link" href="#"
+                  >Estabelecimentos</a
+                >
+              </li>
+              <li class="nav-item">
+                <a routerLink="/estabelecimento" class="nav-link" href="#"
+                  >Entregadores</a
+                >
+              </li>
+            </ul>
+            <!--
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Pesquise"
+                aria-label="Pesquise"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Pesquise
+              </button>
+            </form>-->
+          </div>
+        </div>
+      </nav>
+    </header>
+  </div>
+</section>
+<br>
+<br>
+<br>
+<section>
+    <div class="container">
+        <div class="table-wrapper">
+            <div class="table-title">
+                <div class="row">
+                    <div class="col-sm-6">
+						<h2>Todos <b>Estabelecimentos</b></h2>
+					</div>
+					<div class="col-sm-6">
+						<a [routerLink]="'formulario'" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Estabelecimento</span></a>
+					</div>
+                </div>
+            </div>
+            <table class="table table-striped table-hover">
+                <thead>
+                    <tr>
+
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Fantasia</th>
+                        <th>CNPJ</th>
+                        <th>Telefone</th>
+                        <th>Bairro</th>
+                        <th>CPF</th>
+                        <th>Categoria</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <tr *ngFor="let estabelecimento of estabelecimento">
+                        <td>{{ estabelecimento.id}}</td>
+                        <td>{{ estabelecimento.nome}}</td>
+                        <td>{{estabelecimento.nomeFantasia}}</td>
+                        <td>{{estabelecimento.cnpj}}</td>
+                        <td>{{estabelecimento.telefone}}</td>
+                        <td>{{estabelecimento.bairro}}</td>
+                        <td>{{estabelecimento.cep}}</td>
+                        <td>{{estabelecimento.tipoEstabelecimento.nome}}</td>
+                        <td>
+                            <a (click)="atualizarEstabelecimento(estabelecimento.id)" class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                            <a (click)=" deletarEstabelecimento(estabelecimento)" class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                        </td>
+                    </tr>
+
+                </tbody>
+            </table>
+            </div>
+            </div>
+            </section>
+            <app-footer></app-footer>

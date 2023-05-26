@@ -19,11 +19,15 @@ import { SharedModule } from './shared/shared.module';
 import { TipoprodutoModule } from './tipoproduto/tipoproduto.module';
 import { TipoestabelecimentoModule } from './tipoestabelecimento/tipoestabelecimento.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { HubComponent } from './hub/hub.component';
+import { GerenciaEstabelecimentoComponent } from './gerencia-estabelecimento/gerencia-estabelecimento.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
+    HubComponent,
+    GerenciaEstabelecimentoComponent,
   ],
   imports: [
     BrowserModule,

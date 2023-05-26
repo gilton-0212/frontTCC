@@ -7,6 +7,7 @@ import { EstabelecimentoFormularioComponent } from './estabelecimento-formulario
 import { EstabelecimentoRoutes } from './estabelecimento.routing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EstabelecimentoComponent } from './estabelecimento.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import { EstabelecimentoComponent } from './estabelecimento.component';
     CommonModule,
     EstabelecimentoRoutes,
     AutoCompleteModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
 
   exports:[],
