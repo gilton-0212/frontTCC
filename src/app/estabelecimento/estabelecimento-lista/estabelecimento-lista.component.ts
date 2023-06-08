@@ -25,7 +25,9 @@ export class EstabelecimentoListaComponent implements OnInit {
 
   ) { }
 
-  ngOnInit(): void {
+  ngOnInit():
+
+  void {
     this.estabelecimentoService.getTodosEstabelecimento().subscribe(dados => this.estabelecimento = dados);
   }
 

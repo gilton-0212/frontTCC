@@ -8,6 +8,8 @@ import { EstabelecimentoRoutes } from './estabelecimento.routing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EstabelecimentoComponent } from './estabelecimento.component';
 import { SharedModule } from '../shared/shared.module';
+import { Menubar, MenubarModule } from 'primeng/menubar';
+import { InputTextModule } from 'primeng/inputtext';
 
 
 @NgModule({
@@ -16,7 +18,11 @@ import { SharedModule } from '../shared/shared.module';
     EstabelecimentoRoutes,
     AutoCompleteModule,
     ReactiveFormsModule,
-    SharedModule
+    SharedModule,
+    MenubarModule,
+    InputTextModule
+
+
   ],
 
   exports:[],

@@ -41,6 +41,10 @@ import { GerenciaEstabelecimentoComponent } from './gerencia-estabelecimento/ger
     TipoestabelecimentoModule,
     EstabelecimentoModule
   ],
+  exports:[
+    EstabelecimentoModule
+
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

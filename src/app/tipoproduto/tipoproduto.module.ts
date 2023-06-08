@@ -7,13 +7,15 @@ import { CommonModule } from '@angular/common';
 import { TipoprodutoComponent } from './tipoproduto.component';
 import { TipoprodutoFormularioComponent } from './tipoproduto-formulario/tipoproduto-formulario.component';
 import { TipoprodutoListaComponent } from './tipoproduto-lista/tipoproduto-lista.component';
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
   imports:[
     CommonModule,
     TipoprodutoRoutes,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SharedModule
   ],
 
   exports:[],
