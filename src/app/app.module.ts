@@ -22,8 +22,8 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HubComponent } from './hub/hub.component';
 import { GerenciaEstabelecimentoComponent } from './gerencia-estabelecimento/gerencia-estabelecimento.component';
 import { ProdutoModule } from './produto/produto.module';
-
-
+import { LoginComponent } from './Security/login/login.component';
+import { SecurityModule } from './Security/security.module';
 
 @NgModule({
   declarations: [
@@ -44,8 +44,8 @@ import { ProdutoModule } from './produto/produto.module';
     TipoprodutoModule,
     TipoestabelecimentoModule,
     EstabelecimentoModule,
-    ProdutoModule
-
+    ProdutoModule,
+    SecurityModule
   ],
   exports:[
     EstabelecimentoModule

@@ -1,0 +1,105 @@
+<section class="section">
+    <div class="container">
+      <div class="p-grid justify-content-center">
+        <div class="p-md-6 p-text-center p-mb-5">
+          <h2 class="heading-section"></h2>
+        </div>
+      </div>
+      <div class="p-grid justify-content-center">
+        <div class="p-md-12 p-lg-10">
+          <div class="wrap p-d-flex">
+            <div class="img">
+              <span class="p-text-center">Gestão Empresarial</span>
+              <ul>
+                <li>
+                  <i class="fa fa-sitemap signin-icon"></i> Sped Fiscal/Pis e
+                  Cofins
+                </li>
+                <li>
+                  <i class="fa fa-file-text-o signin-icon"></i> NF-e NFC-e CT-e
+                  MDF-e
+                </li>
+                <li>
+                  <i class="fa fa-outdent signin-icon"></i> Gestão na area
+                  Alimentícia
+                </li>
+                <li><i class="fa fa-user signin-icon"></i> Multi-Loja</li>
+              </ul>
+            </div>
+            <div class="login-wrap p-p-5">
+              <div class="p-d-flex">
+                <div class="w-100 p-mb-4">
+                  <p class="social-media p-d-flex justify-content-end">
+                    <a
+                      href="#"
+                      class="social-icon p-d-flex p-ai-center justify-content-center"
+                      ><span class="pi pi-whatsapp"></span
+                    ></a>
+                    <a
+                      href="#"
+                      class="social-icon p-d-flex p-ai-center justify-content-center"
+                      ><span class="pi pi-telegram"></span
+                    ></a>
+                    <a
+                      href="#"
+                      class="social-icon p-d-flex p-ai-center justify-content-center"
+                      ><span class="pi pi-youtube"></span
+                    ></a>
+                    <a
+                      href="#"
+                      class="social-icon p-d-flex p-ai-center justify-content-center"
+                      ><span class="pi pi-instagram"></span
+                    ></a>
+                  </p>
+                </div>
+              </div>
+              <form
+                class="signin-form p-fluid"
+                autocomplete="off"
+                #form="ngForm"
+                (ngSubmit)="login(usuario.value, senha.value)"
+              >
+                <div class="form-group p-mb-4">
+                  <label class="label" for="name">Usuario</label>
+                  <input
+                    type="email"
+                    pInputText
+                    placeholder="email"
+                    #usuario
+                    name="usuario"
+                    ngModel
+                    [required]="true"
+                    class="form-control"
+                  />
+                </div>
+                <div class="form-group p-mb-3">
+                  <label class="label" for="password">Senha</label>
+                  <input
+                    type="password"
+                    pInputText
+                    #senha
+                    name="senha"
+                    ngModel
+                    class="form-control"
+                    placeholder="Senha"
+                    [required]="true"
+                  />
+                </div>
+  
+                <div class="form-group p-text-center">
+                  <button
+                    pButton
+                    style="height: 48px"
+                    type="submit"
+                    [disabled]="form.invalid"
+                    *ngIf="!loadding"
+                    label="Entrar"
+                  ></button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
