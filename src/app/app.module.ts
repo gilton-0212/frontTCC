@@ -21,6 +21,9 @@ import { TipoestabelecimentoModule } from './tipoestabelecimento/tipoestabelecim
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { HubComponent } from './hub/hub.component';
 import { GerenciaEstabelecimentoComponent } from './gerencia-estabelecimento/gerencia-estabelecimento.component';
+import { ProdutoModule } from './produto/produto.module';
+
+
 
 @NgModule({
   declarations: [
@@ -28,6 +31,7 @@ import { GerenciaEstabelecimentoComponent } from './gerencia-estabelecimento/ger
     HomeComponent,
     HubComponent,
     GerenciaEstabelecimentoComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -39,7 +43,9 @@ import { GerenciaEstabelecimentoComponent } from './gerencia-estabelecimento/ger
     SharedModule,
     TipoprodutoModule,
     TipoestabelecimentoModule,
-    EstabelecimentoModule
+    EstabelecimentoModule,
+    ProdutoModule
+
   ],
   exports:[
     EstabelecimentoModule

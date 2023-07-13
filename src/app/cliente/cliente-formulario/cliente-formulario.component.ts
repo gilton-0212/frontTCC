@@ -32,18 +32,18 @@ export class ClienteFormularioComponent implements OnInit {
 
     this.formulario= this.form.group({
       id:             [],
-      nome:           [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      cpf:            [null,[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-      email:          [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      telefone:       [null,[Validators.required, Validators.minLength(3), Validators.maxLength(14)]],
-      logradouro:     [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      numero:         [null,[Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
-      complemento:    [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      bairro:         [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      cep:            [null,[Validators.required, Validators.minLength(3), Validators.maxLength(8)]],
-      nomeMunicipio:  [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      uf:             [null,[Validators.required, Validators.minLength(3), Validators.maxLength(2)]],
-      nomePais:       [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      nome:           [null],
+      cpf:            [null],
+      email:          [null],
+      telefone:       [null],
+      logradouro:     [null],
+      numero:         [null],
+      complemento:    [null],
+      bairro:         [null],
+      cep:            [null],
+      nomeMunicipio:  [null],
+      uf:             [null],
+      nomePais:       [null],
       dataNascimento: []
     })
 
