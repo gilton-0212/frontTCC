@@ -4,5 +4,7 @@
 
 export const environment = {
   production: false,
-  API: '/api'
+  API: '/api',
+  tokenWhitelistedDomains: [new RegExp('localhost:8080')],
+  tokenBlacklistedRoutes: [new RegExp('/oauth/token')],
 };
