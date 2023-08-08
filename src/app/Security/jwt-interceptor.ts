@@ -9,8 +9,8 @@ import { Injectable } from '@angular/core';
 import { from, Observable } from 'rxjs';
 import { mergeMap } from 'rxjs/operators';
 import { NotAuthenticatedError } from './not-authencated-error';
+import { AuthService } from './Service/auth.service';
 
-import { AuthService } from './service/auth.service';
 
 @Injectable()
 export class JwtInterceptor implements HttpInterceptor {
