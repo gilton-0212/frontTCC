@@ -11,6 +11,8 @@ export class ClienteService {
 
   private readonly API = `${environment.API}/cadastros/cliente`;
 
+  private readonly APIPUBLICA = `${environment.API}/public/cliente`;
+
   constructor(private httpCliente: HttpClient) { }
 
   getTodosClientes(): Observable<ICliente[]>{
@@ -23,7 +25,7 @@ export class ClienteService {
   }
 
   postCriarCliente(cliente : ICliente){
-    return this.httpCliente.post<ICliente>(this.API, cliente ).pipe(take(1));
+    return this.httpCliente.post<ICliente>(this.APIPUBLICA, cliente ).pipe(take(1));
   }
 
   putAtualizarCliente(cliente : ICliente){

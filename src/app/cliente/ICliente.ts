@@ -14,5 +14,5 @@ export interface ICliente{
   uf: string;
   nomePais: string;
   dataNascimento: Date;
-
+  senha: string;
 }

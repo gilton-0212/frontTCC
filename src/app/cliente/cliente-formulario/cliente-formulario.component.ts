@@ -44,7 +44,8 @@ export class ClienteFormularioComponent implements OnInit {
       nomeMunicipio:  [null],
       uf:             [null],
       nomePais:       [null],
-      dataNascimento: []
+      dataNascimento: [null],
+      senha: [null]
     })
 
   }
