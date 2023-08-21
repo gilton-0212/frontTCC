@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProdutoRoutes } from './produto.routing';
 import { ProdutoComponent } from './produto.component';
-
+import { ProdutoFilterComponent } from './produto-filter/produto-filter.component';
 
 @NgModule({
 
@@ -18,7 +18,8 @@ import { ProdutoComponent } from './produto.component';
   exports: [],
   declarations: [
     ProdutoListaComponent,
-    ProdutoComponent
+    ProdutoComponent,
+    ProdutoFilterComponent
   ],
 
   providers: []

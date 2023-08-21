@@ -1,5 +1,7 @@
 export interface ProductFilter {
   id?: number;
   nome?: string;
-  inativo?: string;
+  categoriaProduto?: string;
+  descricao?: string;
+  preco?: number;
 }
