@@ -117,12 +117,16 @@
 </section>-->
 
 
+<div class="text-center">
+<button routerLink="/gerencia" type="button" class="text-center" class="btn btn-secondary">Area do Estabelecimento</button>
+<button routerLink="/gestao"type="button" class="text-center" class="btn btn-secondary">HUB</button>
+</div>
 <div class="login-box">
   <h2>Login</h2>
   <form #form="ngForm">
     <div class="user-box">
-      <input type="text" #usuario name="usuario" required="true">
-      <label>Usuario</label>
+      <input type="text" #usuario name="E-mail/Ssuario" required="true">
+      <label>Email/Usuario</label>
     </div>
     <div class="user-box">
       <input type="password" #senha ngModel name="senha" required="true">
@@ -133,7 +137,7 @@
       <span></span>
       <span></span>
       <span></span>
-      Submit
+      Entrar
     </a>
 
     <a  routerLink="/cliente/formulario">

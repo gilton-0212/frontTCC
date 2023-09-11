@@ -6,12 +6,14 @@ import { ClienteFormularioComponent } from './cliente-formulario/cliente-formula
 import { ClienteListaComponent } from './cliente-lista/cliente-lista.component';
 import { ClienteService } from './cliente.service';
 import { ClienteRoutes } from './cliente.routing';
+import { SharedModule } from '../shared/shared.module';
 @NgModule({
 
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    ClienteRoutes
+    ClienteRoutes,
+    SharedModule
 
   ],
   exports: [],

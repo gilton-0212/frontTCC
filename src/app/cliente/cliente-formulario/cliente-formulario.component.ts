@@ -68,7 +68,7 @@ export class ClienteFormularioComponent implements OnInit {
     if(cliente.id){
       this.clienteService.putAtualizarCliente(cliente).subscribe(
         secesso => {
-          this.router.navigate(['cliente'])
+          this.router.navigate(['home'])
         },
         error => console.error(error)
       );

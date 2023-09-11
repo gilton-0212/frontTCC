@@ -68,7 +68,7 @@ body {
   position: relative;
   display: inline-block;
   padding: 10px 20px;
-  color: #03e9f4;
+  color: #25f748;
   font-size: 16px;
   text-decoration: none;
   text-transform: uppercase;
@@ -166,4 +166,7 @@ body {
   50%,100% {
     bottom: 100%;
   }
+}
+button{
+  margin: 50px 5px 20px;
 }

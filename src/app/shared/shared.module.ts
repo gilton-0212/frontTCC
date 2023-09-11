@@ -4,6 +4,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FooterHubComponent } from './footer-hub/footer-hub.component';
 import { HeadHubComponent } from './head-hub/head-hub.component';
 import { HeadGerenciaComponent } from './head-gerencia/head-gerencia.component';
+import { HeadCadastroComponent } from './head-cadastro/head-cadastro.component';
 
 
 
@@ -12,7 +13,8 @@ import { HeadGerenciaComponent } from './head-gerencia/head-gerencia.component';
     FooterComponent,
     FooterHubComponent,
     HeadHubComponent,
-    HeadGerenciaComponent
+    HeadGerenciaComponent,
+    HeadCadastroComponent
   ],
   imports: [
     CommonModule
@@ -21,7 +23,8 @@ import { HeadGerenciaComponent } from './head-gerencia/head-gerencia.component';
     FooterComponent,
     FooterHubComponent,
     HeadHubComponent,
-    HeadGerenciaComponent
+    HeadGerenciaComponent,
+    HeadCadastroComponent
   ]
 })
 export class SharedModule { }

@@ -1,4 +1,4 @@
 export interface ITipoproduto {
-  codigo?: number;
+  id: number;
   nome: string;
 }

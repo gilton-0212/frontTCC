@@ -7,7 +7,7 @@ import { TipoprodutoListaComponent } from './tipoproduto-lista/tipoproduto-lista
 const routes : Routes = [
   { path: 'tipoproduto', component: TipoprodutoListaComponent },
   { path: 'tipoproduto/formulario', component: TipoprodutoFormularioComponent},
-  { path: 'tipoproduto/editar/:codigo', component: TipoprodutoFormularioComponent}
+  { path: 'tipoproduto/editar/:id', component: TipoprodutoFormularioComponent}
 ];
 
 @NgModule({

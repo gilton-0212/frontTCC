@@ -13,12 +13,28 @@ import { ITipoproduto } from '../ITipoproduto';
 export class TipoprodutoListaComponent implements OnInit {
 
   tipoproduto: ITipoproduto[] = [];
+  tipoprodutoSelecionado! : ITipoproduto;
 
   constructor(
-  private tipoprodutoService: TipoprodutoService
+  private tipoprodutoService: TipoprodutoService,
+  private router : Router
     ) { }
 
   ngOnInit(): void {
     this.tipoprodutoService.getTodosTipoproduto().subscribe(dados => this.tipoproduto = dados);
   }
+
+  atualizarTipoproduto(id: number){
+    this.router.navigate(['tipoproduto/editar', id])
+
+  }
+
+  deletarTipoproduto(cat: ITipoproduto){
+    this.tipoprodutoSelecionado = cat;
+    this.tipoprodutoService.deletarTipoproduto(this.tipoprodutoSelecionado.id).subscribe(
+      sucesso =>  this.tipoprodutoService.getTodosTipoproduto().subscribe(dados => this.tipoproduto = dados)
+    );
+  }
+
+
 }
