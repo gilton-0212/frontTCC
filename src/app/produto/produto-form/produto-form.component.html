@@ -1,0 +1,43 @@
+
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<section>
+  <div class="row g-3 needs-validation" novalidate >
+  <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-12 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="text-right">CADASTRO PRODUTO</h4>
+                </div>
+                <div>
+                  <label class="labels">Foto do Produto</label><input type="file" name="arquivos" class="btn btn-secondary"  accept="image/png, image/jpeg"  multiple />
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Nome do Produto</label><input type="text" class="form-control" id="nome" placeholder="Nome Produto" formControlName="nome" value="" ></div>
+                    <div class="col-md-2"><label class="labels">Qtd. Estoque</label><input type="text" class="form-control" id="quantidadeEstoque" value="" formControlName="quantidadeEstoque" placeholder="Quantidade de Estoque" ></div>
+                    <div class="col-md-1"><label class="labels">SKU</label><input type="text" class="form-control" id="sku" value="" formControlName="sku" placeholder="SKU (CD. INTERNO)" ></div>
+                    <div class="col-md-3"><label class="labels">Preço</label><input type="text" class="form-control" id="preco" value="" formControlName="preco" placeholder="Preço" ></div>
+
+                  </div>
+                <div class="row mt-3">
+                    <div class="col-md-4"><label class="labels">Marca</label><input type="text" class="form-control" id="marca" placeholder="Marca" formControlName="marca" value="" ></div>
+                    <div class="col-md-8"><label class="labels">Descrição</label><input type="text" class="form-control" id="descricao" placeholder="Descrição" formControlName="descricao"  ></div>
+                </div>
+
+                <div class="row mt-3">
+                    <div class="col-md-2"><label class="labels">Unidade Medida</label><input type="text" class="form-control" id="UNIDADE_MEDIDA" placeholder="Unidade Medida" formControlName="UNIDADE_MEDIDA" value=""  ></div>
+                    <div class="col-md-2"><label class="labels">Ativo</label><input type="text" class="form-control" id="ATIVO" placeholder="Ativo" value="" formControlName="ATIVO" ></div>
+                    <div class="col-md-2"><label class="labels">Situação</label><input type="text" class="form-control" id="SITUACAO" value="" placeholder="Situação" formControlName="SITUACAO" ></div>
+                    <div class="col-md-6"><label class="labels">Categoria do Produto</label><input type="text" class="form-control" id="categoriaProduto" value="" placeholder="Categoria Produto" formControlName="categoriaProduto" ></div>
+                </div>
+                <div class="mt-5 text-center"><div>
+                  <button type="submit" class="btn btn-success" >Salvar</button>
+                  &nbsp;
+                  <button type="button" class="btn btn-default" >Cancelar</button>
+                </div></div>
+            </div>
+        </div>
+    </div>
+  </div>

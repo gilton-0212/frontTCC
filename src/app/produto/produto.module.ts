@@ -7,6 +7,7 @@ import { ProdutoRoutes } from './produto.routing';
 import { ProdutoComponent } from './produto.component';
 import { ProdutoFilterComponent } from './produto-filter/produto-filter.component';
 import { SharedModule } from '../shared/shared.module';
+import { ProdutoFormComponent } from './produto-form/produto-form.component';
 
 @NgModule({
 
@@ -22,7 +23,8 @@ import { SharedModule } from '../shared/shared.module';
   declarations: [
     ProdutoListaComponent,
     ProdutoComponent,
-    ProdutoFilterComponent
+    ProdutoFilterComponent,
+    ProdutoFormComponent
   ],
 
   providers: []
