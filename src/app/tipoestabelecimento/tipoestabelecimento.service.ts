@@ -29,7 +29,7 @@ export class TipoestabelecimentoService {
     const params = new HttpParams()
       .set('filter', nome);
 
-    return this.httpCliente.get<nome[]>(`${this.API}/nome`, { params: params });
+    return this.httpCliente.get<nome[]>(`${environment.API}/public/nome`, { params: params });
   }
 
   postCriarTipoEstabelecimento(tipoestabelecimento : ITipoestabelecimento){
