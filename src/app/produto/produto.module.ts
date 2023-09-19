@@ -8,6 +8,13 @@ import { ProdutoComponent } from './produto.component';
 import { ProdutoFilterComponent } from './produto-filter/produto-filter.component';
 import { SharedModule } from '../shared/shared.module';
 import { ProdutoFormComponent } from './produto-form/produto-form.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { FileUploadModule } from 'primeng/fileupload';
+import { FieldsetModule } from 'primeng/fieldset';
+import { PasswordModule } from 'primeng/password';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 @NgModule({
 
@@ -15,7 +22,15 @@ import { ProdutoFormComponent } from './produto-form/produto-form.component';
     CommonModule,
     ReactiveFormsModule,
     ProdutoRoutes,
-    SharedModule
+    SharedModule,
+    InputTextModule,
+    CheckboxModule,
+    RadioButtonModule,
+    FileUploadModule,
+    FieldsetModule,
+    PasswordModule,
+    InputNumberModule
+
 
   ],
   exports: [ProdutoFilterComponent,

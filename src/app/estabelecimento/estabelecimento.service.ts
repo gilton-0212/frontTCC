@@ -12,6 +12,8 @@ export class EstabelecimentoService {
 
   private readonly API = `${environment.API}/cadastros/estabelecimento`;
 
+  private readonly APIPUBLICA = `${environment.API}/public/estabelecimento`;
+
   constructor(private httpCliente : HttpClient) { }
 
   getTodosEstabelecimento(): Observable<IEstabelecimento[]>{
@@ -24,7 +26,7 @@ export class EstabelecimentoService {
   }
 
   postCriarEstabelecimento(estabelecimento : IEstabelecimento){
-    return this.httpCliente.post<IEstabelecimento>(this.API, estabelecimento).pipe(take(1));
+    return this.httpCliente.post<IEstabelecimento>(this.APIPUBLICA, estabelecimento).pipe(take(1));
   }
 
   putAtualizarEstabelecimento(estabelecimento : IEstabelecimento){

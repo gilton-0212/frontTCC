@@ -21,8 +21,6 @@ import { InputTextModule } from 'primeng/inputtext';
     SharedModule,
     MenubarModule,
     InputTextModule
-
-
   ],
 
   exports:[],

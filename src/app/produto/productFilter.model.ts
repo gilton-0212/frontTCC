@@ -4,4 +4,5 @@ export interface ProductFilter {
   categoriaProduto?: string;
   descricao?: string;
   preco?: number;
+  imagemProduto?: {url: string};
 }

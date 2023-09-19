@@ -9,6 +9,8 @@ export interface Product {
   sku: string;
   marca: string;
   descricao: string;
+  imagemProduto: {url: string};
+
 
 }
 

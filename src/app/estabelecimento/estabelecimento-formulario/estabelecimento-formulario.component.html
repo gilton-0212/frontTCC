@@ -1,272 +1,66 @@
-<form class="row g-3 needs-validation" novalidate [formGroup]="formulario">
-  <div class="col-md-12">
-    <label for="nome" class="form-label">EStabelecimento</label>
-    <input
-      type="text"
-      class="form-control"
-      id="nome"
-      placeholder="Nome do Estabelecimento"
-      formControlName="nome"
-      [ngClass]="{'is-invalid': submitted && hasError('nome')}"
-      required
-    />
-    <input
-      type="text"
-      class="form-control"
-      id="nomeFantasia"
-      placeholder="Nome Fantasia"
-      formControlName="nomeFantasia"
-      [ngClass]="{'is-invalid': submitted && hasError('nomeFantasia')}"
-      required
-    />
-    <input
-    type="text"
-    class="form-control"
-    id="cnpj"
-    placeholder="cnpj do Estabelecimentoo"
-    formControlName="cnpj"
-    [ngClass]="{'is-invalid': submitted && hasError('cnpj')}"
-    required
-  />
-  <input
-  type="text"
-  class="form-control"
-  id="email"
-  placeholder="email do estabelecimento"
-  formControlName="email"
-  [ngClass]="{'is-invalid': submitted && hasError('email')}"
-  required
-/>
-  <input
-  type="text"
-  class="form-control"
-  id="telefone"
-  placeholder="Telefone do Estabelecimento"
-  formControlName="telefone"
-  [ngClass]="{'is-invalid': submitted && hasError('telefone')}"
-  required
-  />
-  <input
-  type="text"
-  class="form-control"
-  id="logradouro"
-  placeholder="Logradouro"
-  formControlName="logradouro"
-  [ngClass]="{'is-invalid': submitted && hasError('logradouro')}"
-  required
-  />
-  <input
-  type="text"
-  class="form-control"
-  id="numero"
-  placeholder="Numero"
-  formControlName="numero"
-  [ngClass]="{'is-invalid': submitted && hasError('numero')}"
-  required
-  />
-  <input
-  type="text"
-  class="form-control"
-  id="complemento"
-  placeholder="Complemento"
-  formControlName="complemento"
-  [ngClass]="{'is-invalid': submitted && hasError('complemento')}"
-  required
-  />
-  <input
-  type="text"
-  class="form-control"
-  id="bairro"
-  placeholder="Bairro"
-  formControlName="bairro"
-  [ngClass]="{'is-invalid': submitted && hasError('bairro')}"
-  required
-  />
-  <input
-  type="text"
-  class="form-control"
-  id="cep"
-  placeholder="cep"
-  formControlName="cep"
-  [ngClass]="{'is-invalid': submitted && hasError('cep')}"
-  required
-  />
-  <input
-  type="text"
-  class="form-control"
-  id="nomeMunicipio"
-  placeholder="Municipio"
-  formControlName="Municipio"
-  [ngClass]="{'is-invalid': submitted && hasError('municipio')}"
-  required
-  />
-  <input
-  type="text"
-  class="form-control"
-  id="uf"
-  placeholder="UF"
-  formControlName="uf"
-  [ngClass]="{'is-invalid': submitted && hasError('uf')}"
-  required
-  />
-  <input
-  type="text"
-  class="form-control"
-  id="nomePais"
-  placeholder="Nome Pais"
-  formControlName="nomepais"
-  [ngClass]="{'is-invalid': submitted && hasError('nomePais')}"
-  required
-  />
-  <div class="p-col-12 p-sm-4 p-md-4 p-lg-4">
-    <input
-      label="TipoEstabelecimento"
-      for="tipoEstabelecimento"
-      [required]="true"
-    >
-      <p-autoComplete
-        formControlName="tipoEstabelecimento"
-        (completeMethod)="buscarTipo($event)"
-        [suggestions]="tipoEstabelecimento"
-        ariaLabel="tipoEstabelecimento"
-        dropdownAriaLabel=""
-        field="nome"
-      >
-      </p-autoComplete>
-  </div>
-  <div class="valid-feedback">Looks good!</div>
-  </div>
-  <div>
-    <button type="submit" class="btn btn-success" (click)="adicionarEstabelecimento()" >Salvar</button>
-    &nbsp;
-    <button type="button" class="btn btn-default" (click)="onCancel()">Cancelar</button>
-  </div>
-  <h3><span> Formulário de Cadastro</span></h3>
-<div class="col-lg-8 col-md-6 col-sm-12 justify-content-center">
-      <div class="contact-form">
-          <form>
-            <div class="row">
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                 <small>Nome Completo*</small>
-                 <input name="name" type="text" class="form-control" id="name" placeholder="Ex: Pedro dos Santos" required="">
-                </fieldset>
+
+  <app-head-hub></app-head-hub>
+  <section>
+  <form class="row g-3 needs-validation" novalidate [formGroup]="formulario">
+  <div class="container rounded bg-white mt-5 mb-5">
+    <div class="row">
+        <div class="col-md-12 border-right">
+            <div class="p-3 py-5">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="text-right">Novo Estabelecimento</h4>
+                </div>
+                <div class="row mt-2">
+                    <div class="col-md-6"><label class="labels">Nome do Estabelecimento</label><input type="text" class="form-control" id="nome" placeholder="Nome Estabelecimento" formControlName="nome" value="" [ngClass]="{'is-invalid': submitted && hasError('nome')}" required ></div>
+                    <div class="col-md-6"><label class="labels">CNPJ</label><input type="text" class="form-control" id="cnpj" value="" formControlName="cnpj" placeholder="CNPJ" [ngClass]="{'is-invalid': submitted && hasError('cnpj')}" required></div>
+                  </div>
+                <div class="row mt-3">
+                    <div class="col-md-4"><label class="labels">Nome Fantasia</label><input type="text" class="form-control" id="nomeFantasia" placeholder="Nome Fantasia" formControlName="nomeFantasia" value="" [ngClass]="{'is-invalid': submitted && hasError('nomeFantasia')}" required></div>
+                    <div class="col-md-4"><label class="labels">Telefone</label><input type="text" class="form-control" id="telefone" placeholder="Telefone" formControlName="telefone" [ngClass]="{'is-invalid': submitted && hasError('telefone')}" required ></div>
+                    <div class="col-md-4"><label class="labels">CEP</label><input type="text" class="form-control" placeholder="CEP" formControlName="cep" value="" [ngClass]="{'is-invalid': submitted && hasError('cep')}" required ></div>
+                </div>
+                <div class="row mt-3">
+                    <div class="col-md-3"><label class="labels">Logradouro</label><input type="text" class="form-control" id="logradouro" placeholder="Logradouro" formControlName="logradouro" value="" [ngClass]="{'is-invalid': submitted && hasError('logradouro')}" required ></div>
+                    <div class="col-md-3"><label class="labels">Numero</label><input type="text" class="form-control" id="numero" placeholder="Numero" value="" formControlName="numero" [ngClass]="{'is-invalid': submitted && hasError('numero')}" required></div>
+                    <div class="col-md-3"><label class="labels">Bairro</label><input type="text" class="form-control" id="bairro" value="" placeholder="Bairro" formControlName="bairro" [ngClass]="{'is-invalid': submitted && hasError('bairro')}" required></div>
+                    <div class="col-md-3"><label class="labels">Cidade</label><input type="text" class="form-control" id="nomeMunicipio" value="" placeholder="Cidade" formControlName="nomeMuunicipio" [ngClass]="{'is-invalid': submitted && hasError('municipio')}" required ></div>
+                </div>
+                <div class="row mt-3">
+                  <div class="col-md-3"><label class="labels">UF</label><input type="text" class="form-control" id="uf" placeholder="UF" value="" formControlName="uf" [ngClass]="{'is-invalid': submitted && hasError('uf')}" required></div>
+                  <div class="col-md-3"><label class="labels">País</label><input type="text" class="form-control" id="pais" placeholder="Pais" value="" formControlName="pais" [ngClass]="{'is-invalid': submitted && hasError('nomePais')}" required></div>
+                  <div class="col-md-6"><label class="labels">Complemento</label><input type="text" class="form-control" id="complemento" value="" formControlName="complemento" placeholder="Complemento" [ngClass]="{'is-invalid': submitted && hasError('complemento')}" required></div>
               </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Apelido</small>
-                  <input name="apelido" type="text" class="form-control" id="apelido" placeholder="Ex: Pedro de Maria de Tal">
-                </fieldset>
+              <div class="row mt-2">
+                <div class="col-md-4"><label class="labels">E-mail</label><input type="text" class="form-control" id="email" placeholder="email" value="" formControlName="email" [ngClass]="{'is-invalid': submitted && hasError('email')}" required></div>
+                <div class="col-md-4"><label class="labels">Categoria do Estabalecimento</label>
+                <input
+                    label="TipoEstabelecimento"
+                    for="tipoEstabelecimento"
+                    [required]="true"
+                  >
+                    <p-autoComplete
+                      formControlName="tipoEstabelecimento"
+                      (completeMethod)="buscarTipo($event)"
+                      [suggestions]="tipoEstabelecimento"
+                      ariaLabel="tipoEstabelecimento"
+                      dropdownAriaLabel=""
+                      field="nome"
+                    >
+                    </p-autoComplete>
+                </div>
               </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Data de Nascimento *</small>
-                  <input name="dt_nascimento" type="date" class="form-control" id="dt_nascimento" placeholder="DD/MM/AAAA" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Sexo *</small>
-                  <input name="sexo" type="text" class="form-control" id="sexo" placeholder="Ex: Feminino" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>RG *</small>
-                  <input name="rg" type="text" class="form-control" id="rg" placeholder="Ex. 0 000 000 0" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>CPF *</small>
-                  <input name="cpf" type="text" class="form-control" id="cpf" placeholder="Ex: 000 000 000 85" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Numero Titulo de Eleitor *</small>
-                  <input name="titulo" type="text" class="form-control" id="titulo" placeholder="Ex: 0000 0000 1111" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Sessão de Votação *</small>
-                  <input name="sessao" type="text" class="form-control" id="sessao" placeholder="Ex: 0101" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Profissão *</small>
-                  <input name="profissao" type="text" class="form-control" id="profissao" placeholder="Ex: Lavrador" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Estado Civil *</small>
-                  <input name="estado_civil" type="text" class="form-control" id="estado_civil" placeholder="Ex: Solteiro" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Nome da Mãe *</small>
-                  <input name="mae" type="text" class="form-control" id="mae" placeholder="Ex: Maria dos Santos" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Nome do Pai *</small>
-                  <input name="pai" type="text" class="form-control" id="pai" placeholder="Ex: João Jose dos Santos" >
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Telefone *</small>
-                  <input name="telefone" type="tel" class="form-control" id="telefone" placeholder="(XX) XXXX-XXXX *" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>E-mail</small>
-                  <input name="email" type="email" class="form-control" id="email" placeholder="E-Mail">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Digite seu CEP *</small>
-                  <input name="CEP" type="text" class="form-control" id="cep" placeholder="CEP">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Rua *</small>
-                  <input name="Rua" type="text" class="form-control" id="logradouro" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Bairro *</small>
-                  <input name="bairro" type="text" class="form-control" id="bairro" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Cidade *</small>
-                  <input name="cidade" type="text" class="form-control" id="localidade" required="">
-                </fieldset>
-              </div>
-               <div class="col-lg-6 col-md-12 col-sm-12">
-                <fieldset>
-                  <small>Estado *</small>
-                  <input name="estado" type="text" class="form-control" id="uf" required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <button type="submit" id="form-submit" class="main-button">Enviar</button>
-                </fieldset>
-              </div>
+                <div class="mt-5 text-center"><div>
+                  <button type="submit" class="btn btn-success" (click)="adicionarEstabelecimento()">Salvar</button>
+                  &nbsp;
+                  <button type="button" class="btn btn-default" (click)="onCancel()">Cancelar</button>
+                </div></div>
             </div>
-          </form>
-      </div>
+        </div>
+    </div>
   </div>
-<app-footer></app-footer>
+  </form>
+  </section>
+
+  <app-footer-hub></app-footer-hub>
+
+
+

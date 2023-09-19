@@ -36,7 +36,7 @@ export class EstabelecimentoFormularioComponent implements OnInit {
     }
 
     this.formulario= this.form.group({
-      id:             [null],
+      id:             [],
       nome:           [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       nomeFantasia:   [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       cnpj:           [null,[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
@@ -47,9 +47,9 @@ export class EstabelecimentoFormularioComponent implements OnInit {
       complemento:    [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       bairro:         [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       cep:            [null,[Validators.required, Validators.minLength(3), Validators.maxLength(8)]],
-      nomeMunicipio:  [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      nomeMunicipio:  [],
       uf:             [null,[Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
-      nomePais:       [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      nomePais:       [],
       tipoEstabelecimento:[null],
 
     })
