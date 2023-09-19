@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { ProdutoService } from '../produto.service';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 
 @Component({
@@ -14,7 +14,7 @@ export class ProdutoFormComponent implements OnInit {
 
   arquivo: any;
 
-  imagemProduto: string = 'assets/login.jpg';
+  imagemProduto: string = '';
 
   formulario!: FormGroup;
 
@@ -26,7 +26,24 @@ export class ProdutoFormComponent implements OnInit {
 
   ngOnInit(): void {
 
+    this.criarForm()
+  }
 
+  criarForm(){
+    this.formulario= this.form.group({
+      id:                   [null],
+      nome:                 [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      quantidadeEstoque:    [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      sku:                  [null,[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      preco:                [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      marca:                [null,[Validators.required, Validators.minLength(3), Validators.maxLength(14)]],
+      descricao:            [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      unidadeMedida:        [null,[Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+      ativo:                [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      situacao:             [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      categoriaProduto:     [null],
+
+    })
   }
 
   onFileChange(event: any) {
