@@ -35,4 +35,9 @@ import { Page } from "../models/page";
         return this.httpCliente.get<Page<ProductResumList>>(`${this.API}`, { params });
     
     }
+
+    uploadImagem(formData: FormData): Observable<any>{
+      return this.httpCliente.put<string>(`${environment.API}/cadastros/produto/uploadImagem`, formData);
+
+    }
 }
