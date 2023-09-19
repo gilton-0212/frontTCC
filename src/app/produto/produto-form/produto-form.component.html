@@ -12,9 +12,12 @@
                     <h4 class="text-right">CADASTRO PRODUTO</h4>
                 </div>
                 <div>
-                  <label class="labels">Foto do Produto</label><input type="file" name="arquivos" class="btn btn-secondary"  accept="image/png, image/jpeg"  multiple />
+                 <!--  <label class="labels">Foto do Produto</label> -->
+                  <img class="profile-image"  [src]='imagemProduto' style="height: 182px; width: 50%"/>
+                  <input type="file" name="arquivos" class="btn btn-secondary" (change)="onFileChange($event)"  accept="image/png, image/jpeg"  multiple />
+                  <button type="submit" class="btn btn-primary" (click)="uploadImagem()">Enviar</button>
                 </div>
-                <div class="row mt-2">
+               <!--  <div class="row mt-2">
                     <div class="col-md-6"><label class="labels">Nome do Produto</label><input type="text" class="form-control" id="nome" placeholder="Nome Produto" formControlName="nome" value="" ></div>
                     <div class="col-md-2"><label class="labels">Qtd. Estoque</label><input type="text" class="form-control" id="quantidadeEstoque" value="" formControlName="quantidadeEstoque" placeholder="Quantidade de Estoque" ></div>
                     <div class="col-md-1"><label class="labels">SKU</label><input type="text" class="form-control" id="sku" value="" formControlName="sku" placeholder="SKU (CD. INTERNO)" ></div>
@@ -31,7 +34,7 @@
                     <div class="col-md-2"><label class="labels">Ativo</label><input type="text" class="form-control" id="ATIVO" placeholder="Ativo" value="" formControlName="ATIVO" ></div>
                     <div class="col-md-2"><label class="labels">Situação</label><input type="text" class="form-control" id="SITUACAO" value="" placeholder="Situação" formControlName="SITUACAO" ></div>
                     <div class="col-md-6"><label class="labels">Categoria do Produto</label><input type="text" class="form-control" id="categoriaProduto" value="" placeholder="Categoria Produto" formControlName="categoriaProduto" ></div>
-                </div>
+                </div> -->
                 <div class="mt-5 text-center"><div>
                   <button type="submit" class="btn btn-success" >Salvar</button>
                   &nbsp;
