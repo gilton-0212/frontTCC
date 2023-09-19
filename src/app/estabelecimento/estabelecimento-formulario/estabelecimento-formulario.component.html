@@ -31,16 +31,16 @@
               </div>
               <div class="row mt-2">
                 <div class="col-md-4"><label class="labels">E-mail</label><input type="text" class="form-control" id="email" placeholder="email" value="" formControlName="email" [ngClass]="{'is-invalid': submitted && hasError('email')}" required></div>
-                <div class="col-md-4"><label class="labels">Categoria do Estabalecimento</label>
-                    <p-autoComplete
-                      formControlName="tipoEstabelecimento"
-                      (completeMethod)="buscarTipo($event)"
-                      [suggestions]="tipoEstabelecimento"
-                      ariaLabel="tipoEstabelecimento"
-                      dropdownAriaLabel=""
-                      field="nome"
-                    >
-                    </p-autoComplete>
+                <div class="col-md-4"><label class="labels">Categoria do Estabalecimento</label><p-autoComplete
+                  formControlName="tipoEstabelecimento"
+                  (completeMethod)="buscarTipo($event)"
+                  [suggestions]="tipoEstabelecimento"
+                  ariaLabel="tipoEstabelecimento"
+                  dropdownAriaLabel=""
+                  field="nome"
+                >
+                </p-autoComplete>
+
                 </div>
               </div>
                 <div class="mt-5 text-center"><div>
@@ -56,6 +56,8 @@
   </section>
 
   <app-footer-hub></app-footer-hub>
+
+
 
 
 
