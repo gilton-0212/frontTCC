@@ -62,4 +62,37 @@ export class ProdutoFormComponent implements OnInit {
     });
   }
 
+  onFileChange(event: any) {
+    // console.log(event)
+    this.arquivo = event.target.files[0];
+  }
+
+  uploadImagem() {
+
+    let formData = new FormData();
+    formData.append('arquivo', this.arquivo);
+
+    this.produtoService.uploadImagem(formData).subscribe({
+      next: (value) => {
+
+        value.caminhoImagem;
+        let parteEspecifica = 'assets/'
+        //this.imagemProduto = srt.substring;
+
+        let partes = value.caminhoImagem.split(parteEspecifica);
+
+        if (partes.length > 1) {
+          let substringDesejada = partes[1]; // A parte desejada é a segunda parte do array
+          this.imagemProduto = 'assets/' + substringDesejada.trim();
+          console.log(this.imagemProduto); // Use trim() para remover espaços em branco extras
+        } else {
+          console.log("A parte específica não foi encontrada na string maior.");
+        }
+        /*  this.sanitizer.bypassSecurityTrustResourceUrl(this.imagemProduto);
+         console.log(value.caminhoImagem) */
+        //this.form.get('certificadoDigitalCaminho')?.setValue(value);
+      }
+    });
+  }
+
 }
