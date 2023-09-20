@@ -3,6 +3,9 @@ import { environment } from 'src/environments/environment';
 import { ProdutoService } from '../produto.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
+import { TipoprodutoService } from 'src/app/tipoproduto/tipoproduto.service';
+import { nome } from 'src/app/models/nome.model';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-produto-form',
@@ -18,13 +21,51 @@ export class ProdutoFormComponent implements OnInit {
 
   formulario!: FormGroup;
 
+  tipoProduto! : nome[];
+
+  unidades = [
+    { label: 'Unidade', value: 'UNIDADE' },
+    {
+      label: 'Quilo',
+      value: 'QUILO',
+    },
+    { label: 'Caixa', value: 'CAIXA' },
+    { label: 'Metro', value: 'METRO' },
+    { label: 'Metro Quadrado', value: 'METRO_QUADRADO' },
+    { label: 'Litro', value: 'LITRO' },
+    { label: 'Grama', value: 'GRAMA' },
+    { label: 'Metro Cúbico', value: 'METRO_CUBICO' },
+    { label: 'Jogo', value: 'JOGO' },
+    { label: 'Rolo', value: 'ROLO' },
+    { label: 'Centímetro', value: 'CENTIMETRO' },
+    { label: 'Saco', value: 'SACO' },
+  ];
+
+  simNao = [
+    {label: 'Sim', value: 'SIM'},
+    {label: 'Não', value: 'NAO'},
+  ];
+
+  situacao = [
+    {label: 'Disponível', value: 'DISPONIVEL'},
+    {label: 'Indisponível', value: 'INDISPONIVEL'},
+  ]
+
   constructor(
     private produtoService: ProdutoService,
     private form: FormBuilder,
-    private readonly sanitizer: DomSanitizer
+    private tipoProdutoService: TipoprodutoService,
+    private route : ActivatedRoute,
+    private router : Router,
   ) { }
 
   ngOnInit(): void {
+
+    const id = this.route.snapshot.params['id'];
+    console.log(id)
+    if (id) {
+      this.preencherFormulario(id);
+    }
 
     this.criarForm()
   }
@@ -38,10 +79,11 @@ export class ProdutoFormComponent implements OnInit {
       preco:                [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       marca:                [null,[Validators.required, Validators.minLength(3), Validators.maxLength(14)]],
       descricao:            [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      unidadeMedida:        [null,[Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
-      ativo:                [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      situacao:             [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      unidadeMedida:        ['UNIDADE',[Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+      ativo:                ['SIM',[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      situacao:             ['DISPONIVEL',[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
       categoriaProduto:     [null],
+      imagemProduto:        [null]
 
     })
   }
@@ -67,16 +109,60 @@ export class ProdutoFormComponent implements OnInit {
 
         if (partes.length > 1) {
           let substringDesejada = partes[1]; // A parte desejada é a segunda parte do array
-          this.imagemProduto = 'assets/' + substringDesejada.trim();
-          console.log(this.imagemProduto); // Use trim() para remover espaços em branco extras
+          this.imagemProduto = 'assets/' + substringDesejada.trim(); // Use trim() para remover espaços em branco extras
+          this.formulario.get('imagemProduto')?.setValue(this.imagemProduto)
         } else {
-          console.log("A parte específica não foi encontrada na string maior.");
+          console.log("Não possivel achar o caminho da imagem");
         }
         /*  this.sanitizer.bypassSecurityTrustResourceUrl(this.imagemProduto);
          console.log(value.caminhoImagem) */
         //this.form.get('certificadoDigitalCaminho')?.setValue(value);
       }
     });
+  }
+
+  buscarTipo(event: any) {
+    const nome = event.query;
+    this.tipoProdutoService.getTipoprodutoPorNome(nome).subscribe({
+      next: (result) => {
+        this.tipoProduto = result;
+      }
+    });
+  }
+
+  preencherFormulario(id: number) {
+
+    this.produtoService.getProdutoId(id)
+      .subscribe(result => {
+        this.formulario.patchValue(result);
+
+      },
+        error => console.error(error)
+      );
+  }
+
+  adicionarProduto() {
+
+    const produto = this.formulario.value;
+
+    //edicao
+    if(produto.id){
+      this.produtoService.putAtualizarProduto(produto).subscribe(
+        secesso => {
+          this.router.navigate(['produto'])
+        },
+        error => console.error(error)
+      );
+    }
+    //adicição
+    else{
+      this.produtoService.postCriarProduto(produto).subscribe(
+        secesso => {
+          this.router.navigate(['produto'])
+        },
+        error => console.error(error)
+      );
+    }
   }
 
 }

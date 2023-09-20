@@ -30,13 +30,24 @@
                 </div>
 
                 <div class="row mt-3">
-                    <div class="col-md-2"><label class="labels">Unidade Medida</label><input type="text" class="form-control" id="UNIDADE_MEDIDA" placeholder="Unidade Medida" formControlName="unidadeMedida" value=""  ></div>
-                    <div class="col-md-2"><label class="labels">Ativo</label><input type="text" class="form-control" id="ATIVO" placeholder="Ativo" value="" formControlName="ativo" ></div>
-                    <div class="col-md-2"><label class="labels">Situação</label><input type="text" class="form-control" id="SITUACAO" value="" placeholder="Situação" formControlName="situacao" ></div>
-                    <div class="col-md-6"><label class="labels">Categoria do Produto</label><input type="text" class="form-control" id="categoriaProduto" value="" placeholder="Categoria Produto" formControlName="categoriaProduto" ></div>
+                    <div class="col-md-2"><label class="labels">Unidade Medida</label><p-dropdown formControlName="unidadeMedida" [options]="unidades"></p-dropdown></div>
+                    <div class="col-md-2"><label class="labels">Ativo</label><p-dropdown formControlName="ativo" [options]="simNao"></p-dropdown></div>
+                    <div class="col-md-2"><label class="labels">Situação</label><p-dropdown formControlName="situacao" [options]="situacao"></p-dropdown></div>
+                    <div class="col-md-6"><label class="labels">Categoria do Produto</label>
+                      <p-autoComplete
+                      formControlName="categoriaProduto"
+                      (completeMethod)="buscarTipo($event)"
+                      [suggestions]="tipoProduto"
+                      ariaLabel="tipoProduto"
+                      dropdownAriaLabel=""
+                      field="nome"
+                    >
+                    </p-autoComplete>
+    
+                    </div>
                 </div>
                 <div class="mt-5 text-center"><div>
-                  <button type="submit" class="btn btn-success" >Salvar</button>
+                  <button type="submit" class="btn btn-success" (click)="adicionarProduto()">Salvar</button>
                   &nbsp;
                   <button type="button" class="btn btn-default" >Cancelar</button>
                 </div></div>

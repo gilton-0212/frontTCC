@@ -1,10 +1,11 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { Observable, take } from "rxjs";
 import { environment } from "src/environments/environment";
 import { ProductResumList } from "./productResum.model";
 import { Filter } from "../models/filter";
 import { Page } from "../models/page";
+import { Product } from "./product.model";
 
 @Injectable({
     providedIn: 'root'
@@ -39,5 +40,22 @@ import { Page } from "../models/page";
     uploadImagem(formData: FormData): Observable<any>{
       return this.httpCliente.put<string>(`${environment.API}/cadastros/produto/uploadImagem`, formData);
 
+    }
+
+    getProdutoId(id: number){
+      return this.httpCliente.get<Product>(`${this.API}/${id}`);
+    }
+  
+    postCriarProduto(produto : Product){
+      return this.httpCliente.post<Product>(this.API, produto).pipe(take(1));
+    }
+  
+    putAtualizarProduto(produto : Product){
+      return this.httpCliente.put<Product>(`${this.API}/${produto.id}`, produto).pipe(take(1));
+  
+    }
+  
+    deletarProduto(id: number | undefined){
+      return this.httpCliente.delete(`${this.API}/${id}`).pipe(take(1));
     }
 }

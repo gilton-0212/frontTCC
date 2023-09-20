@@ -15,6 +15,8 @@ import { FileUploadModule } from 'primeng/fileupload';
 import { FieldsetModule } from 'primeng/fieldset';
 import { PasswordModule } from 'primeng/password';
 import { InputNumberModule } from 'primeng/inputnumber';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
 
@@ -29,7 +31,9 @@ import { InputNumberModule } from 'primeng/inputnumber';
     FileUploadModule,
     FieldsetModule,
     PasswordModule,
-    InputNumberModule
+    InputNumberModule,
+    AutoCompleteModule,
+    DropdownModule,
 
 
   ],
