@@ -8,7 +8,7 @@
                       <div class="col mb-5" *ngFor="let produto of list">
                           <div class="card h-100" >
                               <!-- Product image-->
-                              <img class="card-img-top" src="{{produto.imagemProduto}}" width="180" height="150" alt="..." />
+                              <img class="card-img-top" src="{{produto.imagemProduto}}" onerror="this.src='assets/DEFAULT.jpeg'" width="180" height="150" alt="..." />
                               <!-- Product details-->
                               <div class="card-body p-4">
                                   <div class="text-center">
