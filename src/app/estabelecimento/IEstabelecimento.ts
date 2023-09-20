@@ -16,4 +16,5 @@ export interface IEstabelecimento{
   uf: string;
   nomePais: string;
   tipoEstabelecimento: nome;
+  senha: string;
 }

@@ -3,5 +3,5 @@ export interface ProductResumList {
   nome: string;
   marca: string;
   preco: number;
-  imagemProduto: {url: string};
+  imagemProduto: string;
 }

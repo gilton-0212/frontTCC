@@ -51,6 +51,7 @@ export class EstabelecimentoFormularioComponent implements OnInit {
       uf:             [null,[Validators.required, Validators.minLength(2), Validators.maxLength(2)]],
       nomePais:       [],
       tipoEstabelecimento:[null],
+      senha:[null]
 
     })
 
