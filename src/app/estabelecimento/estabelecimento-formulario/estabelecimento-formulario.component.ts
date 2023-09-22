@@ -75,7 +75,7 @@ export class EstabelecimentoFormularioComponent implements OnInit {
     //edicao
     if(estabelecimento.id){
       this.estabelecimentoService.putAtualizarEstabelecimento(estabelecimento).subscribe(
-        secesso => {
+        secesso => { alert('Estabelecimento Editado com Sucesso')
           this.router.navigate(['estabelecimento'])
         },
         error => console.error(error)
@@ -84,7 +84,7 @@ export class EstabelecimentoFormularioComponent implements OnInit {
     //adicição
     else{
       this.estabelecimentoService.postCriarEstabelecimento(estabelecimento).subscribe(
-        secesso => {
+        secesso => { alert('Estabelecimento Cadastrado com Sucesso')
           this.router.navigate(['estabelecimento'])
         },
         error => console.error(error)

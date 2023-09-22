@@ -51,7 +51,7 @@ export class TipoprodutoFormularioComponent implements OnInit {
     //edicao
     if(tipoproduto.id){
       this.tipoprodutooservice.putAtualizarTipoproduto(tipoproduto).subscribe(
-        secesso => {
+        secesso => { alert('Categoria Editada com Sucesso')
           this.router.navigate(['tipoproduto'])
         },
         error => console.error(error)
@@ -60,7 +60,7 @@ export class TipoprodutoFormularioComponent implements OnInit {
     //adicição
     else{
       this.tipoprodutooservice.postCriarTipoproduto(tipoproduto).subscribe(
-        secesso => {
+        secesso => { alert('Categoria Adicionada com Sucesso')
           this.router.navigate(['tipoproduto'])
         },
         error => console.error(error)

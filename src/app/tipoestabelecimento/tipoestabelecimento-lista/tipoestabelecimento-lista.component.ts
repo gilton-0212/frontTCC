@@ -32,8 +32,8 @@ export class TipoestabelecimentoListaComponent implements OnInit {
   deletarTipoEstabelecimento(cat: ITipoestabelecimento){
     this.tipoestabelecimentosSelecionado = cat;
     this.tipoestabelecimentoservice.deletarTipoEstabelecimento(this.tipoestabelecimentosSelecionado.id).subscribe(
-      sucesso =>  this.tipoestabelecimentoservice.getTodosTiposestabelecimento().subscribe(dados => this.tipoestabelecimento = dados)
-    );
+      sucesso => { alert('Categoria Removida com Sucesso'); this.tipoestabelecimentoservice.getTodosTiposestabelecimento().subscribe(dados => this.tipoestabelecimento = dados)
+    });
   }
 
 }

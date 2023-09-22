@@ -39,8 +39,8 @@ export class EstabelecimentoListaComponent implements OnInit {
   deletarEstabelecimento(est: IEstabelecimento){
     this.estabelecimentosSelecionado = est;
     this.estabelecimentoService.deletarEstabelecimento(this.estabelecimentosSelecionado.id).subscribe(
-      sucesso =>  this.estabelecimentoService.getTodosEstabelecimento().subscribe(dados => this.estabelecimento = dados)
-    );
+      sucesso => {alert('Estabeleciemnto Removido com Sucesso'); this.estabelecimentoService.getTodosEstabelecimento().subscribe(dados => this.estabelecimento = dados)
+  });
   }
 
 }

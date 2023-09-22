@@ -67,7 +67,7 @@ export class ClienteFormularioComponent implements OnInit {
     //edicao
     if(cliente.id){
       this.clienteService.putAtualizarCliente(cliente).subscribe(
-        secesso => {
+        secesso => { alert('Usuario Editado com Sucesso')
           this.router.navigate(['home'])
         },
         error => console.error(error)
@@ -76,7 +76,7 @@ export class ClienteFormularioComponent implements OnInit {
     //adicição
     else{
       this.clienteService.postCriarCliente(cliente).subscribe(
-        secesso => {
+        secesso => { alert('Usuario Cadastrado com Sucesso')
           this.router.navigate(['cliente'])
         },
         error => console.error(error)

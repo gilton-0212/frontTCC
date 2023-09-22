@@ -32,8 +32,8 @@ export class TipoprodutoListaComponent implements OnInit {
   deletarTipoproduto(cat: ITipoproduto){
     this.tipoprodutoSelecionado = cat;
     this.tipoprodutoService.deletarTipoproduto(this.tipoprodutoSelecionado.id).subscribe(
-      sucesso =>  this.tipoprodutoService.getTodosTipoproduto().subscribe(dados => this.tipoproduto = dados)
-    );
+      sucesso => { alert('Categoria Removida com Sucesso'); this.tipoprodutoService.getTodosTipoproduto().subscribe(dados => this.tipoproduto = dados)
+  });
   }
 
 

@@ -34,8 +34,8 @@ export class ClienteListaComponent implements OnInit {
   deletarCliente(cat: ICliente){
     this.clienteSelecionado= cat;
     this.clienteService.deletarTipoCliente(this.clienteSelecionado.id).subscribe(
-      sucesso =>  this.clienteService.getTodosClientes().subscribe(dados => this.cliente = dados)
-    );
+      sucesso => {alert('Usuario Removido com Sucesso'); this.clienteService.getTodosClientes().subscribe(dados => this.cliente = dados)
+  });
   }
 
 }

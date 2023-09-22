@@ -53,7 +53,7 @@ export class TipoestabelecimentoFormularioComponent implements OnInit {
     //edicao
     if(tipoestabelecimento.id){
       this.tipoestabelecimentoserice.putAtualizarTipoEstabelecimento(tipoestabelecimento).subscribe(
-        secesso => {
+        secesso => { alert('Categoria Editada com Sucesso')
           this.router.navigate(['tipoestabelecimento'])
         },
         error => console.error(error)
@@ -62,7 +62,7 @@ export class TipoestabelecimentoFormularioComponent implements OnInit {
     //adicição
     else{
       this.tipoestabelecimentoserice.postCriarTipoEstabelecimento(tipoestabelecimento).subscribe(
-        secesso => {
+        secesso => { alert('Categoria Adicionada com Sucesso')
           this.router.navigate(['tipoestabelecimento'])
         },
         error => console.error(error)

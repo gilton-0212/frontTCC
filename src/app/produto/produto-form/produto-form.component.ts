@@ -148,7 +148,7 @@ export class ProdutoFormComponent implements OnInit {
     //edicao
     if(produto.id){
       this.produtoService.putAtualizarProduto(produto).subscribe(
-        secesso => {
+        secesso => { alert('Produto Editado com Sucesso')
           this.router.navigate(['produto'])
         },
         error => console.error(error)
@@ -157,7 +157,7 @@ export class ProdutoFormComponent implements OnInit {
     //adicição
     else{
       this.produtoService.postCriarProduto(produto).subscribe(
-        secesso => {
+        secesso => { alert('Produto Cadastrado com Sucesso')
           this.router.navigate(['produto'])
         },
         error => console.error(error)
