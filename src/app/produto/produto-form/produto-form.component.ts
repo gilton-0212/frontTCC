@@ -46,7 +46,7 @@ export class ProdutoFormComponent implements OnInit {
     {label: 'Não', value: 'NAO'},
   ];
 
-  situacao = [
+  situacoes = [
     {label: 'Disponível', value: 'DISPONIVEL'},
     {label: 'Indisponível', value: 'INDISPONIVEL'},
   ]
@@ -89,7 +89,6 @@ export class ProdutoFormComponent implements OnInit {
   }
 
   onFileChange(event: any) {
-    // console.log(event)
     this.arquivo = event.target.files[0];
   }
 
@@ -103,7 +102,6 @@ export class ProdutoFormComponent implements OnInit {
 
         value.caminhoImagem;
         let parteEspecifica = 'assets/'
-        //this.imagemProduto = srt.substring;
 
         let partes = value.caminhoImagem.split(parteEspecifica);
 
@@ -114,9 +112,6 @@ export class ProdutoFormComponent implements OnInit {
         } else {
           console.log("Não possivel achar o caminho da imagem");
         }
-        /*  this.sanitizer.bypassSecurityTrustResourceUrl(this.imagemProduto);
-         console.log(value.caminhoImagem) */
-        //this.form.get('certificadoDigitalCaminho')?.setValue(value);
       }
     });
   }
