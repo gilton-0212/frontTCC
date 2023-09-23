@@ -2,9 +2,9 @@
 
   <div class="field col-12">
           
-    <img src="assets/DEFAULT.jpeg">
+    <img [src]="imagemProduto">
     
-    <p-fileUpload mode="basic" name="demo[]" url="./upload.php" accept="image/*" [maxFileSize]="1000000" (onUpload)="uploadImagem()"></p-fileUpload>
+    <p-fileUpload mode="basic"  [customUpload]="true" accept="image/*" (onSelect)="onFileChange($event)" (uploadHandler)="uploadImagem($event)"></p-fileUpload>
         
   </div>
     
@@ -25,35 +25,35 @@
 
   <div class="field col-4">
     <span class="p-float-label">
-      <p-inputNumber inputId="inputnumber" formControlName="quantidadeEstoque"></p-inputNumber>
-      <label for="inputnumber">SKU</label>
+      <input type="text" id="inputtext" pInputText formControlName="sku">
+      <label for="inputtext">SKU</label>
     </span>
   </div>
 
   <div class="field col-4">
     <span class="p-float-label">
-      <p-inputNumber inputId="inputnumber" formControlName="quantidadeEstoque"></p-inputNumber>
+      <p-inputNumber inputId="inputnumber" formControlName="preco"></p-inputNumber>
       <label for="inputtext">Preço</label>
     </span>
   </div>
 
   <div class="field col-4">
     <span class="p-float-label">
-      <p-inputNumber inputId="inputnumber" formControlName="quantidadeEstoque"></p-inputNumber>
-      <label for="inputnumber">Marca</label>
+      <input type="text" id="inputtext" pInputText formControlName="marca">
+      <label for="inputtext">Marca</label>
     </span>
   </div>
 
   <div class="field col-4">
     <span class="p-float-label">
-      <p-inputNumber inputId="inputnumber" formControlName="quantidadeEstoque"></p-inputNumber>
-      <label for="inputnumber">Descrição</label>
+      <input type="text" id="inputtext" pInputText formControlName="descricao">
+      <label for="inputtext">Descrição</label>
     </span>
   </div>
 
   <div class="field col-4">
     <span class="p-float-label">
-      <p-dropdown [options]="unidades" formControlName="quantidadeEstoque" optionLabel="label"
+      <p-dropdown [options]="unidades" formControlName="unidadeMedida" optionLabel="label"
         optionValue="value"></p-dropdown>
       <label for="inputnumber">Unidade Medida</label>
     </span>
@@ -61,7 +61,7 @@
 
   <div class="field col-4">
     <span class="p-float-label">
-      <p-dropdown [options]="situacoes" formControlName="quantidadeEstoque" optionLabel="label"
+      <p-dropdown [options]="situacoes" formControlName="ativo" optionLabel="label"
         optionValue="value"></p-dropdown>
       <label for="inputnumber">Situação</label>
     </span>
@@ -69,7 +69,7 @@
 
   <div class="field col-4">
     <span class="p-float-label">
-      <p-dropdown [options]="simNao" formControlName="quantidadeEstoque" optionLabel="label"
+      <p-dropdown [options]="simNao" formControlName="situacao" optionLabel="label"
         optionValue="value"></p-dropdown>
       <label for="inputnumber">Ativo</label>
     </span>
@@ -88,7 +88,7 @@
 
 <div class="grid p-fluid">
   <div class="field col-3">
-    <p-button label="Salvar" styleClass="p-button-sm"></p-button>
+    <p-button label="Salvar" (onClick)=" adicionarProduto()" styleClass="p-button-sm"></p-button>
   </div>
 
   <div class="field col-3">

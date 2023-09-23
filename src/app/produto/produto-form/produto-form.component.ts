@@ -17,7 +17,7 @@ export class ProdutoFormComponent implements OnInit {
 
   arquivo: any;
 
-  imagemProduto: string = '';
+  imagemProduto: string = 'assets/DEFAULT.jpeg';
 
   formulario!: FormGroup;
 
@@ -89,18 +89,16 @@ export class ProdutoFormComponent implements OnInit {
   }
 
   onFileChange(event: any) {
-    this.arquivo = event.target.files[0];
+
+    this.arquivo = event.currentFiles[0].name;
   }
 
-  uploadImagem() {
-
+  uploadImagem(event: { files: File[] }){
     let formData = new FormData();
-    formData.append('arquivo', this.arquivo);
+    formData.append('arquivo', event.files[0], event.files[0].name);
 
     this.produtoService.uploadImagem(formData).subscribe({
       next: (value) => {
-
-        value.caminhoImagem;
         let parteEspecifica = 'assets/'
 
         let partes = value.caminhoImagem.split(parteEspecifica);
