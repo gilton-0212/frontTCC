@@ -17,7 +17,7 @@ export class ProdutoFormComponent implements OnInit {
 
   arquivo: any;
 
-  imagemProduto: string = '';
+  imagemProduto: string = 'assets/DEFAULT.jpeg';
 
   formulario!: FormGroup;
 
@@ -46,7 +46,7 @@ export class ProdutoFormComponent implements OnInit {
     {label: 'Não', value: 'NAO'},
   ];
 
-  situacao = [
+  situacoes = [
     {label: 'Disponível', value: 'DISPONIVEL'},
     {label: 'Indisponível', value: 'INDISPONIVEL'},
   ]
@@ -89,21 +89,17 @@ export class ProdutoFormComponent implements OnInit {
   }
 
   onFileChange(event: any) {
-    // console.log(event)
-    this.arquivo = event.target.files[0];
+
+    this.arquivo = event.currentFiles[0].name;
   }
 
-  uploadImagem() {
-
+  uploadImagem(event: { files: File[] }){
     let formData = new FormData();
-    formData.append('arquivo', this.arquivo);
+    formData.append('arquivo', event.files[0], event.files[0].name);
 
     this.produtoService.uploadImagem(formData).subscribe({
       next: (value) => {
-
-        value.caminhoImagem;
         let parteEspecifica = 'assets/'
-        //this.imagemProduto = srt.substring;
 
         let partes = value.caminhoImagem.split(parteEspecifica);
 
@@ -114,9 +110,6 @@ export class ProdutoFormComponent implements OnInit {
         } else {
           console.log("Não possivel achar o caminho da imagem");
         }
-        /*  this.sanitizer.bypassSecurityTrustResourceUrl(this.imagemProduto);
-         console.log(value.caminhoImagem) */
-        //this.form.get('certificadoDigitalCaminho')?.setValue(value);
       }
     });
   }

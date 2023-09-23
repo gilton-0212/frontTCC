@@ -1,59 +1,99 @@
+<div class="grid p-fluid" novalidate [formGroup]="formulario">
 
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<section>
-  <div class="row g-3 needs-validation" novalidate [formGroup]="formulario">
-  <div class="container rounded bg-white mt-5 mb-5">
-    <div class="row">
-        <div class="col-md-12 border-right">
-            <div class="p-3 py-5">
-                <div class="d-flex justify-content-between align-items-center mb-4">
-                    <h4 class="text-right">CADASTRO PRODUTO</h4>
-                </div>
-                <div>
-                  <label class="labels">Foto do Produto</label>
-                  <img class="profile-image"  [src]='imagemProduto' style="height: 100px; width: 100px"/>
-                  <input type="file" name="arquivos" class="btn btn-secondary" (change)="onFileChange($event)"  accept="image/png, image/jpeg"  multiple />
-                  <button type="submit" class="btn btn-primary" (click)="uploadImagem()">Enviar</button>
-                </div>
-
-                <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Nome do Produto</label><input type="text" class="form-control" id="nome" placeholder="Nome Produto" formControlName="nome" value="" ></div>
-                    <div class="col-md-2"><label class="labels">Qtd. Estoque</label><input type="text" class="form-control" id="quantidadeEstoque" value="" formControlName="quantidadeEstoque" placeholder="Quantidade de Estoque" ></div>
-                    <div class="col-md-1"><label class="labels">SKU</label><input type="text" class="form-control" id="sku" value="" formControlName="sku" placeholder="SKU (CD. INTERNO)" ></div>
-                    <div class="col-md-3"><label class="labels">Preço</label><input type="text" class="form-control" id="preco" value="" formControlName="preco" placeholder="Preço" ></div>
-
-                  </div>
-                <div class="row mt-3">
-                    <div class="col-md-4"><label class="labels">Marca</label><input type="text" class="form-control" id="marca" placeholder="Marca" formControlName="marca" value="" ></div>
-                    <div class="col-md-8"><label class="labels">Descrição</label><input type="text" class="form-control" id="descricao" placeholder="Descrição" formControlName="descricao"  ></div>
-                </div>
-
-                <div class="row mt-3">
-                    <div class="col-md-2"><label class="labels">Unidade Medida</label><p-dropdown formControlName="unidadeMedida" [options]="unidades"></p-dropdown></div>
-                    <div class="col-md-2"><label class="labels">Unidade Medida</label><p-dropdown formControlName="unidadeMedida" [options]="unidades"></p-dropdown></div>
-                    <div class="col-md-2"><label class="labels">Unidade Medida</label><p-dropdown formControlName="unidadeMedida" [options]="unidades"></p-dropdown></div>
-                    <div class="col-md-6"><label class="labels">Categoria de Produto</label></div>
-                      <p-autoComplete
-                      formControlName="categoriaProduto"
-                      (completeMethod)="buscarTipo($event)"
-                      [suggestions]="tipoProduto"
-                      ariaLabel="tipoProduto"
-                      dropdownAriaLabel=""
-                      field="nome"
-                    >
-                    </p-autoComplete>
-
-                    </div>
-                </div>
-                <div class="mt-5 text-center"><div>
-                  <button type="submit" class="btn btn-success" (click)="adicionarProduto()">Salvar</button>
-                  &nbsp;
-                  <button type="button" class="btn btn-default" >Cancelar</button>
-                </div></div>
-            </div>
-        </div>
-    </div>
+  <div class="field col-12">
+          
+    <img [src]="imagemProduto">
+    
+    <p-fileUpload mode="basic"  [customUpload]="true" accept="image/*" (onSelect)="onFileChange($event)" (uploadHandler)="uploadImagem($event)"></p-fileUpload>
+        
+  </div>
+    
+  <div class="field col-4">
+    <span class="p-float-label">
+      <input type="text" id="inputtext" pInputText formControlName="nome">
+      <label for="inputtext">Nome do Produto</label>
+    </span>
   </div>
 
+  <div class="field col-4">
+    <span class="p-float-label">
+      <p-inputNumber inputId="inputnumber" formControlName="quantidadeEstoque"></p-inputNumber>
+      <label for="inputnumber">Qtd. Estoque</label>
+    </span>
+  </div>
+
+
+  <div class="field col-4">
+    <span class="p-float-label">
+      <input type="text" id="inputtext" pInputText formControlName="sku">
+      <label for="inputtext">SKU</label>
+    </span>
+  </div>
+
+  <div class="field col-4">
+    <span class="p-float-label">
+      <p-inputNumber inputId="inputnumber" formControlName="preco"></p-inputNumber>
+      <label for="inputtext">Preço</label>
+    </span>
+  </div>
+
+  <div class="field col-4">
+    <span class="p-float-label">
+      <input type="text" id="inputtext" pInputText formControlName="marca">
+      <label for="inputtext">Marca</label>
+    </span>
+  </div>
+
+  <div class="field col-4">
+    <span class="p-float-label">
+      <input type="text" id="inputtext" pInputText formControlName="descricao">
+      <label for="inputtext">Descrição</label>
+    </span>
+  </div>
+
+  <div class="field col-4">
+    <span class="p-float-label">
+      <p-dropdown [options]="unidades" formControlName="unidadeMedida" optionLabel="label"
+        optionValue="value"></p-dropdown>
+      <label for="inputnumber">Unidade Medida</label>
+    </span>
+  </div>
+
+  <div class="field col-4">
+    <span class="p-float-label">
+      <p-dropdown [options]="situacoes" formControlName="ativo" optionLabel="label"
+        optionValue="value"></p-dropdown>
+      <label for="inputnumber">Situação</label>
+    </span>
+  </div>
+
+  <div class="field col-4">
+    <span class="p-float-label">
+      <p-dropdown [options]="simNao" formControlName="situacao" optionLabel="label"
+        optionValue="value"></p-dropdown>
+      <label for="inputnumber">Ativo</label>
+    </span>
+  </div>
+
+  <div class="field col-6">
+    <span class="p-float-label">
+      <p-autoComplete formControlName="categoriaProduto" (completeMethod)="buscarTipo($event)"
+        [suggestions]="tipoProduto" ariaLabel="tipoProduto" dropdownAriaLabel="" field="nome">
+      </p-autoComplete>
+      <label for="inputnumber">Categoria Produto</label>
+    </span>
+  </div>
+
+</div>
+
+<div class="grid p-fluid">
+  <div class="field col-3">
+    <p-button label="Salvar" (onClick)=" adicionarProduto()" styleClass="p-button-sm"></p-button>
+  </div>
+
+  <div class="field col-3">
+    <button pButton pRipple type="button" styleClass="p-button-sm" label="Cancelar"
+      class="p-button-text p-button-plain"></button>
+
+  </div>
+</div>
