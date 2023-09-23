@@ -31,12 +31,15 @@
               </div>
               <div class="row mt-2">
                 <div class="col-md-4"><label class="labels">E-mail</label><input type="text" class="form-control" id="email" placeholder="email" value="" formControlName="email" [ngClass]="{'is-invalid': submitted && hasError('email')}" required></div>
-                <div class="col-md-4"><label class="labels">Categoria do Estabalecimento</label><p-autoComplete
+                <div class="col-md-4"><label class="labels">Senha</label><input type="password" class="form-control" id="senha" value="" formControlName="senha" placeholder="Senha" [ngClass]="{'is-invalid': submitted && hasError('senha')}" required></div>
+                <div class="col-md-4"><label class="labels" style="display: block;">Categoria do Estabalecimento</label>
+                  <p-autoComplete
                   formControlName="tipoEstabelecimento"
                   (completeMethod)="buscarTipo($event)"
                   [suggestions]="tipoEstabelecimento"
                   ariaLabel="tipoEstabelecimento"
                   dropdownAriaLabel=""
+                  placeholder="Tipo Estabelecimento"
                   field="nome"
                 >
                 </p-autoComplete>
