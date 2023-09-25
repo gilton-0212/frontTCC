@@ -25,6 +25,7 @@ export function tokenGetter(): string {
 
 @NgModule({
   declarations: [LoginComponent],
+  exports: [LoginComponent],
   imports: [
     CommonModule,
     FormsModule,

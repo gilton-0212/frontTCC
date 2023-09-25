@@ -2,6 +2,7 @@ import { ICliente } from './../ICliente';
 import { Router } from '@angular/router';
 import { ClienteService } from './../cliente.service';
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/Security/Service/auth.service';
 
 @Component({
   selector: 'app-cliente-lista',
@@ -17,6 +18,7 @@ export class ClienteListaComponent implements OnInit {
 
     private clienteService : ClienteService,
     private router : Router,
+    private login : AuthService
 
   ) { }
 
@@ -37,5 +39,6 @@ export class ClienteListaComponent implements OnInit {
       sucesso => {alert('Usuario Removido com Sucesso'); this.clienteService.getTodosClientes().subscribe(dados => this.cliente = dados)
   });
   }
+
 
 }
