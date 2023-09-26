@@ -30,6 +30,7 @@ body {
 
 .footer-right>i {
   margin-left: 15px;
+  min-width: 100% !important;
 }
 
 .fa-hand-holding-usd {

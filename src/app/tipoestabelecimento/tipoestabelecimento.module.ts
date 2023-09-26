@@ -8,14 +8,32 @@ import { TipoestabelecimentoRoutes } from './tipoestabelecimento.routing';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from '../shared/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { InputTextModule } from 'primeng/inputtext';
+import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { FileUploadModule } from 'primeng/fileupload';
+import { FieldsetModule } from 'primeng/fieldset';
+import { PasswordModule } from 'primeng/password';
+import { InputNumberModule } from 'primeng/inputnumber';
+import { AutoCompleteModule } from 'primeng/autocomplete';
+import { DropdownModule } from 'primeng/dropdown';
 @NgModule({
   imports:[
     CommonModule,
     TipoestabelecimentoRoutes,
     ReactiveFormsModule,
     SharedModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    InputTextModule,
+    CheckboxModule,
+    RadioButtonModule,
+    FileUploadModule,
+    FieldsetModule,
+    PasswordModule,
+    InputNumberModule,
+    AutoCompleteModule,
+    DropdownModule,
+    FileUploadModule
   ],
 
   exports:[],

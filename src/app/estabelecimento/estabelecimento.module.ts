@@ -11,6 +11,14 @@ import { SharedModule } from '../shared/shared.module';
 import { Menubar, MenubarModule } from 'primeng/menubar';
 import { InputTextModule } from 'primeng/inputtext';
 
+import { CheckboxModule } from 'primeng/checkbox';
+import { RadioButtonModule } from 'primeng/radiobutton';
+import { FileUploadModule } from 'primeng/fileupload';
+import { FieldsetModule } from 'primeng/fieldset';
+import { PasswordModule } from 'primeng/password';
+import { InputNumberModule } from 'primeng/inputnumber';
+
+import { DropdownModule } from 'primeng/dropdown';
 
 @NgModule({
   imports:[
@@ -20,7 +28,17 @@ import { InputTextModule } from 'primeng/inputtext';
     ReactiveFormsModule,
     SharedModule,
     MenubarModule,
-    InputTextModule
+    InputTextModule,
+    InputTextModule,
+    CheckboxModule,
+    RadioButtonModule,
+    FileUploadModule,
+    FieldsetModule,
+    PasswordModule,
+    InputNumberModule,
+    AutoCompleteModule,
+    DropdownModule,
+    FileUploadModule
   ],
 
   exports:[],

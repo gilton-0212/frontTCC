@@ -1,28 +1,113 @@
 
-<app-head-hub></app-head-hub>
+<div class="contenier">
+  <section>
+    <div class="col col-md-4">
+      <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/home">MARKETPLACE</a>
+            <button
+              class="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarCollapse"
+              aria-controls="navbarCollapse"
+              aria-expanded="false"
+              aria-label="Toggle navigation"
+            >
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                <li class="nav-item">
+                  <a routerLink="/tipoestabelecimento" class="nav-link"
+                    >Tipo Estabelecimento</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/estabelecimento" class="nav-link" href="#"
+                    >Estabelecimento</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/cliente" class="nav-link" href="#"
+                    >Cliente</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/gestao" class="nav-link" href="#"
+                    >Gestão</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/gerencia" class="nav-link" href="#"
+                    >Área do Estabelecimento</a
+                  >
+                </li>
 
+                <li class="nav-item">
+                  <a routerLink="/produto" class="nav-link" href="#"
+                    >Produto</a
+                  >
+                </li>
 
-<form class="row g-3 needs-validation" novalidate [formGroup]="formulario">
-<div class="container rounded bg-white mt-5 mb-5">
-  <div class="row">
-      <div class="col-md-12 border-right">
-          <div class="p-3 py-5">
-              <div class="d-flex justify-content-between align-items-center mb-4">
-                  <h4 class="text-right">Nova Categoria de Produto</h4>
-              </div>
-              <div class="row mt-2">
-                  <div class="col-md-12"><label class="labels">Nome da Categoria</label><input type="text" class="form-control" id="nome" placeholder="Nome da Categoria" formControlName="nome" value="" [ngClass]="{'is-invalid': submitted && hasError('nome')}" required ></div>
-
-                </div>
-                            <div class="mt-5 text-center"><div>
-                <button type="submit" class="btn btn-success" (click)="adicionarTipoproduto()">Salvar</button>
-                &nbsp;
-                <button type="button" class="btn btn-default" (click)="onCancel()">Cancelar</button>
-              </div></div>
+                <li class="nav-item">
+                  <a  class="nav-link" href="#"
+                    ><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
+                      <path fill-rule="evenodd" d="M6 12.5a.5.5 0 0 0 .5.5h8a.5.5 0 0 0 .5-.5v-9a.5.5 0 0 0-.5-.5h-8a.5.5 0 0 0-.5.5v2a.5.5 0 0 1-1 0v-2A1.5 1.5 0 0 1 6.5 2h8A1.5 1.5 0 0 1 16 3.5v9a1.5 1.5 0 0 1-1.5 1.5h-8A1.5 1.5 0 0 1 5 12.5v-2a.5.5 0 0 1 1 0v2z"/>
+                      <path fill-rule="evenodd" d="M.146 8.354a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L1.707 7.5H10.5a.5.5 0 0 1 0 1H1.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3z"/>
+                    </svg></a
+                  >
+                </li>
+              </ul>
+              <!--
+              <form class="d-flex">
+                <input
+                  class="form-control me-2"
+                  type="search"
+                  placeholder="Pesquise"
+                  aria-label="Pesquise"
+                />
+                <button class="btn btn-outline-success" type="submit">
+                  Pesquise
+                </button>
+              </form>-->
+            </div>
           </div>
-      </div>
+        </nav>
+      </header>
+    </div>
+  </section>
+<div class="grid p-fluid" novalidate [formGroup]="formulario">
+
+
+  <div class="field col-12">
+    <h4>Cadastro de Nova Categoria</h4>
+  </div>
+
+  <div class="field col-8">
+    <span class="p-float-label">
+      <input type="text" id="inputtext" pInputText formControlName="nome">
+      <label for="inputtext">Nome da Categoria</label>
+    </span>
   </div>
 </div>
-</form>
+
+
+
+  <div class="grid p-fluid">
+    <div class="field col-3">
+      <p-button label="Salvar" (onClick)=" adicionarTipoproduto()" styleClass="p-button-sm"></p-button>
+    </div>
+
+    <div class="field col-3">
+      <button pButton pRipple type="button" styleClass="p-button-sm" label="Cancelar"
+        class="p-button-text p-button-plain"></button>
+
+    </div>
+  </div>
+
+</div>
+
 
 <app-footer-hub></app-footer-hub>

@@ -75,3 +75,30 @@ body {
   border: solid 1px #BA68C8
 }
 
+
+
+::ng-deep html, body {
+  margin: 50px 70px !important;
+}
+
+@media (max-width: 1000px) {
+  ::ng-deep html, body {
+    margin: 50px 50px !important;
+  }
+}
+
+@media (max-width: 700px) {
+  ::ng-deep html, body {
+    margin: 50px 20px !important;
+  }
+}
+
+@media (max-width: 300px) {
+  ::ng-deep html, body {
+    margin: 50px 10px !important;
+  }
+}
+
+
+
+
