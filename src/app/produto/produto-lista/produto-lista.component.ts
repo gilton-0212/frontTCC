@@ -26,10 +26,12 @@ export class ProdutoListaComponent implements OnInit {
   constructor( private service: ProdutoService,) { }
 
   ngOnInit(): void {
+    this.search(new Filter());
   }
 
 
   searchPagination(event: LazyLoadEvent) {
+    console.log('evento',event)
     const pagina = (event.first ?? 0) / (event.rows ?? 0);
 
     this.itemsPerPage = event.rows ?? 20;
@@ -41,6 +43,7 @@ export class ProdutoListaComponent implements OnInit {
   }
 
   search(event: Filter) {
+    console.log(event)
     this.loading = true;
     this.service.getTodosProdutos(event)
       .subscribe({
@@ -52,7 +55,6 @@ export class ProdutoListaComponent implements OnInit {
   private handlerResultResponse(result: Page<ProductResumList>) {
     this.totalRecords = result.totalElements;
     this.list = result.content;
-    console.log('produtos',this.list)
     this.loading = false;
   }
 }
