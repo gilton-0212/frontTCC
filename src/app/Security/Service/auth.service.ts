@@ -79,4 +79,8 @@ export class AuthService {
    // this.jwtPayload = this.jwtHelper.decodeToken(token);
     localStorage.setItem(LOCAL_STORAGE, token);
   }
+
+  public recuperarUsuario(){
+    return this.http.get<any>( `${environment.API}/usuario`);
+  }
 }

@@ -4,6 +4,7 @@ import { ProductResumList } from '../productResum.model';
 import { LazyLoadEvent } from 'primeng/api';
 import { ProdutoService } from '../produto.service';
 import { Page } from 'src/app/models/page';
+import { AuthService } from 'src/app/Security/Service/auth.service';
 
 @Component({
   selector: 'app-produto-lista',
@@ -13,7 +14,7 @@ import { Page } from 'src/app/models/page';
 export class ProdutoListaComponent implements OnInit {
 
   filter: Filter = new Filter();
-  itemsPerPage = 20;
+  itemsPerPage = 100;
 
   totalRecords = 0;
 
@@ -23,7 +24,11 @@ export class ProdutoListaComponent implements OnInit {
 
   options: number[] = [20, 40, 80, 120];
 
-  constructor( private service: ProdutoService,) { }
+  displayModal?: boolean;
+
+  carrinho?: any = [];
+
+  constructor(private service: ProdutoService, private usuarioService: AuthService) { }
 
   ngOnInit(): void {
     this.search(new Filter());
@@ -31,7 +36,7 @@ export class ProdutoListaComponent implements OnInit {
 
 
   searchPagination(event: LazyLoadEvent) {
-    console.log('evento',event)
+    console.log('evento', event)
     const pagina = (event.first ?? 0) / (event.rows ?? 0);
 
     this.itemsPerPage = event.rows ?? 20;
@@ -56,5 +61,16 @@ export class ProdutoListaComponent implements OnInit {
     this.totalRecords = result.totalElements;
     this.list = result.content;
     this.loading = false;
+  }
+
+  showModalDialog() {
+    this.displayModal = true;
+  }
+
+  adicionarProduto(produto: any){
+    this.usuarioService.recuperarUsuario().subscribe(res => {
+      console.log(res)
+    })
+    this.carrinho.push(produto);
   }
 }

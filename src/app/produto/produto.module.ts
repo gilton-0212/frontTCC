@@ -16,6 +16,7 @@ import { PasswordModule } from 'primeng/password';
 import { InputNumberModule } from 'primeng/inputnumber';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { DropdownModule } from 'primeng/dropdown';
+import {DialogModule} from 'primeng/dialog';
 
 @NgModule({
 
@@ -33,7 +34,8 @@ import { DropdownModule } from 'primeng/dropdown';
     InputNumberModule,
     AutoCompleteModule,
     DropdownModule,
-    FileUploadModule
+    FileUploadModule,
+    DialogModule
 
 
   ],
