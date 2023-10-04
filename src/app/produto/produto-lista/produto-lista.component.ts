@@ -68,7 +68,7 @@ export class ProdutoListaComponent implements OnInit {
   }
 
   adicionarProduto(produto: any){
-    this.usuarioService.recuperarUsuario().subscribe(res => {
+    this.usuarioService.recuperarUsuario().subscribe(res => { alert('Produto Adicionado ao Carrinho')
       console.log(res)
     })
     this.carrinho.push(produto);

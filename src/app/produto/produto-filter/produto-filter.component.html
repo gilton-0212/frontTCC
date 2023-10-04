@@ -11,8 +11,6 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="modalBuscaImovelLabel">Buscar por Produtos - Filtros</h5>
-
       </div>
       <div class="modal-body">
         <form novalidate [formGroup]="form">
@@ -32,7 +30,7 @@
                   formControlName="categoriaProduto" />
               </div>
             </div>
-
+<!--
             <div class="col-md-3">
               <div class="form-group">
                 <label for="formGroupExampleInput">Descrição</label>
@@ -40,17 +38,22 @@
                   placeholder="Alimento">
               </div>
             </div>
+          -->
             <div class="col-md-3">
               <div class="form-group">
                 <label for="formGroupExampleInput">Preço</label>
                 <input type="number" class="form-control" id="preco" formControlName="preco" placeholder="10">
               </div>
             </div>
-
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="formGroupExampleInput">___________</label>
+                <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="handlerSearch()">Buscar</button>
+              </div>
+            </div>
           </div>
-          <br>
         </form>
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" (click)="handlerSearch()">Buscar</button>
+
       </div>
     </div>
   </div>
