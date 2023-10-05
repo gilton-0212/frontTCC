@@ -12,9 +12,10 @@ export interface IVenda{
 
 }
 
-interface itens{
+export interface itens{
     id: number;
     produto: nome;
     quantidade:number;
+    
 }
   

@@ -24,7 +24,7 @@ import { GerenciaEstabelecimentoComponent } from './gerencia-estabelecimento/ger
 import { ProdutoModule } from './produto/produto.module';
 import { LoginComponent } from './Security/login/login.component';
 import { SecurityModule } from './Security/security.module';
-import { VendaComponent } from './venda/venda.component';
+import { VendaModule } from './venda/venda.module';
 
 @NgModule({
   declarations: [
@@ -32,7 +32,6 @@ import { VendaComponent } from './venda/venda.component';
     HomeComponent,
     HubComponent,
     GerenciaEstabelecimentoComponent,
-    VendaComponent,
 
   ],
   imports: [
@@ -47,10 +46,12 @@ import { VendaComponent } from './venda/venda.component';
     TipoestabelecimentoModule,
     EstabelecimentoModule,
     ProdutoModule,
-    SecurityModule
+    SecurityModule,
+    VendaModule
   ],
   exports:[
-    EstabelecimentoModule
+    EstabelecimentoModule,
+    VendaModule
 
   ],
   providers: [],

@@ -4,4 +4,5 @@ export interface ProductResumList {
   marca: string;
   preco: number;
   imagemProduto: string;
+  quantidade:number;
 }

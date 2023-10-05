@@ -13,6 +13,9 @@ import { AuthService } from 'src/app/Security/Service/auth.service';
 })
 export class ProdutoListaComponent implements OnInit {
 
+
+  vendaRealizada?: boolean;
+
   filter: Filter = new Filter();
   itemsPerPage = 100;
 
@@ -27,6 +30,8 @@ export class ProdutoListaComponent implements OnInit {
   displayModal?: boolean;
 
   carrinho?: any = [];
+
+  quantidade: any = 1;
 
   constructor(private service: ProdutoService, private usuarioService: AuthService) { }
 
@@ -67,10 +72,19 @@ export class ProdutoListaComponent implements OnInit {
     this.displayModal = true;
   }
 
-  adicionarProduto(produto: any){
-    this.usuarioService.recuperarUsuario().subscribe(res => { alert('Produto Adicionado ao Carrinho')
+  adicionarProduto(produto: ProductResumList){
+    this.usuarioService.recuperarUsuario().subscribe(res =>{
       console.log(res)
     })
+    console.log(produto)
     this.carrinho.push(produto);
+     alert('Produto Adicionado ao Carrinho') 
+    
+  }
+
+  ConcluirVenda(event: boolean){
+    this.displayModal = false
+    this.carrinho = [];
+    console.log(event)
   }
 }
