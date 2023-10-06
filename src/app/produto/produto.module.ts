@@ -18,6 +18,7 @@ import { AutoCompleteModule } from 'primeng/autocomplete';
 import { DropdownModule } from 'primeng/dropdown';
 import {DialogModule} from 'primeng/dialog';
 import { VendaModule } from '../venda/venda.module';
+import { MeusProdutosComponent } from './meus-produtos/meus-produtos.component';
 
 @NgModule({
 
@@ -47,7 +48,8 @@ import { VendaModule } from '../venda/venda.module';
     ProdutoListaComponent,
     ProdutoComponent,
     ProdutoFilterComponent,
-    ProdutoFormComponent
+    ProdutoFormComponent,
+    MeusProdutosComponent
   ],
 
   providers: []

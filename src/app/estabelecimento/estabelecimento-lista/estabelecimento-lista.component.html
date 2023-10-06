@@ -29,6 +29,14 @@
                   >Coletas</a
                 >
               </li>
+
+              <li class="nav-item">
+                <a routerLink="/cliente" class="nav-link" href="#"
+                  >Entregas</a
+                >
+              </li>
+
+
               <li class="nav-item">
                 <a routerLink="/tipoestabelecimento" class="nav-link"
                   >Categorias de Estabelecimento</a
@@ -44,11 +52,7 @@
                   >Categorias de Produtos</a
                 >
               </li>
-              <li class="nav-item">
-                <a routerLink="/estabelecimento" class="nav-link" href="#"
-                  >Entregadores</a
-                >
-              </li>
+
             </ul>
 
             <!--
@@ -71,8 +75,6 @@
 </section>
 <br>
 <br>
-<br>
-<br>
 <section>
     <div class="container">
         <div class="table-wrapper">
@@ -82,7 +84,7 @@
 						<h2>Todos <b>Estabelecimentos</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a [routerLink]="'formulario'" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Estabelecimento</span></a>
+						<a [routerLink]="'formulario'" class="btn btn-primary" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Estabelecimento</span></a>
 					</div>
                 </div>
             </div>
@@ -123,4 +125,3 @@
             </div>
             </div>
             </section>
-            <app-footer-hub></app-footer-hub>

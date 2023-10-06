@@ -7,12 +7,11 @@ import { Page } from 'src/app/models/page';
 import { AuthService } from 'src/app/Security/Service/auth.service';
 
 @Component({
-  selector: 'app-produto-lista',
-  templateUrl: './produto-lista.component.html',
-  styleUrls: ['./produto-lista.component.css']
+  selector: 'app-meus-produtos',
+  templateUrl: './meus-produtos.component.html',
+  styleUrls: ['./meus-produtos.component.css']
 })
-export class ProdutoListaComponent implements OnInit {
-
+export class MeusProdutosComponent implements OnInit {
 
   vendaRealizada?: boolean;
 
@@ -38,7 +37,6 @@ export class ProdutoListaComponent implements OnInit {
   ngOnInit(): void {
     this.search(new Filter());
   }
-
 
   searchPagination(event: LazyLoadEvent) {
     console.log('evento', event)
@@ -88,3 +86,5 @@ export class ProdutoListaComponent implements OnInit {
     console.log(event)
   }
 }
+
+

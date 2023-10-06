@@ -4,7 +4,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-<body>
 <section>
   <div class="col col-md-4">
     <header>
@@ -29,6 +28,14 @@
                   >Coletas</a
                 >
               </li>
+
+              <li class="nav-item">
+                <a routerLink="/cliente" class="nav-link" href="#"
+                  >Entregas</a
+                >
+              </li>
+
+
               <li class="nav-item">
                 <a routerLink="/tipoestabelecimento" class="nav-link"
                   >Categorias de Estabelecimento</a
@@ -44,12 +51,9 @@
                   >Categorias de Produtos</a
                 >
               </li>
-              <li class="nav-item">
-                <a routerLink="/estabelecimento" class="nav-link" href="#"
-                  >Entregadores</a
-                >
-              </li>
+
             </ul>
+
             <!--
             <form class="d-flex">
               <input
@@ -70,7 +74,7 @@
 </section>
 <br>
 <br>
-<br>
+<body>
 <section>
     <div class="container">
         <div class="table-wrapper">
@@ -80,7 +84,7 @@
 						<h2>Categorias de <b>Estabelecimentos</b></h2>
 					</div>
 					<div class="col-sm-6">
-						<a [routerLink]="'formulario'" class="btn btn-success" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Categoria</span></a>
+						<a [routerLink]="'formulario'" class="btn btn-primary" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Categoria</span></a>
 					</div>
                 </div>
             </div>
@@ -165,6 +169,5 @@
 			</div>
 		</div>
 	</div>-->
-<app-footer-hub></app-footer-hub>
 </body>
 </html>

@@ -1,16 +1,13 @@
-
-<html>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
 <section>
   <div class="col col-md-4">
     <header>
       <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-          <a class="navbar-brand" routerLink="/gestao" href="#">GESTÃO</a>
+          <a class="navbar-brand" href="/gerencia">GERÊNCIA ESTABELECIMENTO</a>
           <button
             class="navbar-toggler"
             type="button"
@@ -25,36 +22,17 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a routerLink="/cliente" class="nav-link" href="#"
-                  >Coletas</a
-                >
-              </li>
-
-              <li class="nav-item">
-                <a routerLink="/cliente" class="nav-link" href="#"
-                  >Entregas</a
-                >
-              </li>
-
-
-              <li class="nav-item">
-                <a routerLink="/tipoestabelecimento" class="nav-link"
-                  >Categorias de Estabelecimento</a
+                <a routerLink="/meus produtos" class="nav-link"
+                  >Vendas</a
                 >
               </li>
               <li class="nav-item">
-                <a routerLink="/estabelecimento" class="nav-link" href="#"
-                  >Estabelecimentos</a
-                >
-              </li>
-              <li class="nav-item">
-                <a routerLink="/tipoproduto" class="nav-link" href="#"
-                  >Categorias de Produtos</a
+                <a routerLink="/meusprodutos" class="nav-link"
+                  >Produtos</a
                 >
               </li>
 
             </ul>
-
             <!--
             <form class="d-flex">
               <input
@@ -73,36 +51,42 @@
     </header>
   </div>
 </section>
-
-<div class="grid p-fluid" novalidate [formGroup]="formulario">
-
-  <div class="field col-12">
-    <h4>Cadastro de Nova Categoria</h4>
-  </div>
-
-  <div class="field col-8">
-    <span class="p-float-label">
-      <input type="text" id="inputtext" pInputText formControlName="nome">
-      <label for="inputtext">Nome da Categoria</label>
-    </span>
-  </div>
-</div>
-
-
-
-  <div class="grid p-fluid">
-    <div class="field col-3">
-      <p-button label="Salvar" (onClick)=" adicionarTipoproduto()" styleClass="p-button-sm"></p-button>
+<!-- Fim header -->
+<br>
+<br>
+<div class="container">
+  <div class="table-wrapper">
+      <div class="table-title">
+          <div class="row">
+              <div class="col-sm-6">
+      <h2>Meus <b>Produtos</b></h2>
     </div>
+    <div class="col-sm-6">
+      <a routerLink="/produto/formulario" class="btn btn-primary" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Produto</span></a>
+    </div>
+          </div>
+      </div>
+<section class="py-5">
+  <div class="container px-4 px-lg-5 mt-5">
+    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-12 row-cols-xl-4 justify-content-left">
+      <div class="col mb-5" *ngFor="let produto of list">
+        <div class="card h-100">
+          <!-- Product image-->
+          <img class="card-img-top" src="{{produto.imagemProduto}}" onerror="this.src='assets/DEFAULT.jpeg'" width="180"
+            height="150" alt="..." />
+          <!-- Product details-->
+          <div class="card-body p-4">
+            <div class="text-center">
+              <!-- Product name-->
+              <h5 class="fw-bolder">{{produto.nome}}</h5>
+              <!-- Product price-->
+              R$ {{produto.preco}}&nbsp;&nbsp;&nbsp;&nbsp;
+              <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
+            </div>
+          </div>
 
-    <div class="field col-3">
-      <button pButton pRipple type="button" styleClass="p-button-sm" label="Cancelar"
-        class="p-button-text p-button-plain"></button>
-
+        </div>
+      </div>
     </div>
   </div>
-
-
-
-
-
+</section>
