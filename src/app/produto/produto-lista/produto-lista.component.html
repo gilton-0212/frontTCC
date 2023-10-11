@@ -45,7 +45,7 @@
 
 
 <p-button *ngIf="carrinho.length > 0" (click)="showModalDialog()" icon="pi pi-shopping-cart" label="Carrinho"></p-button>
-<p-dialog header="Carrinho de Compras" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
+<p-dialog *ngIf="displayModal" header="Carrinho de Compras" [(visible)]="displayModal" [modal]="true" [style]="{width: '50vw'}"
   [draggable]="false" [resizable]="false">
   <app-venda [carrinho]="carrinho" (vendaRealizada)="ConcluirVenda($event)"></app-venda>
 </p-dialog>

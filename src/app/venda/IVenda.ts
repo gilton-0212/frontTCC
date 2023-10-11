@@ -3,7 +3,7 @@ import { nome } from "../models/nome.model";
 export interface IVenda{
     id: number;
     cliente: nome;
-    dataVenda: string;
+    dataVenda: Date;
     itens: itens[];
     situacao: string;
     status: string;

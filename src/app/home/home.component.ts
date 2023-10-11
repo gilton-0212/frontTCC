@@ -9,9 +9,15 @@ import { AuthService } from '../Security/Service/auth.service';
 })
 export class HomeComponent implements OnInit {
 
+  usuario!: any;
+
   constructor(private login: AuthService) { }
 
   ngOnInit(): void {
+    this.login.recuperarUsuario().subscribe(res => {
+      this.usuario = res;
+      console.log(this.usuario)
+    })
   }
 
   logout(){

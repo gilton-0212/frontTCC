@@ -3,6 +3,7 @@ import { ICliente } from './ICliente';
 import { Observable, take } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { nome } from '../models/nome.model';
 
 @Injectable({
   providedIn: 'root'
@@ -22,6 +23,10 @@ export class ClienteService {
 
   getClienteId(id: number){
     return this.httpCliente.get<ICliente>(`${this.API}/${id}`);
+  }
+
+  getClienteUsuario(idUsuario: number){
+    return this.httpCliente.get<nome>(`${this.API}/usuario/${idUsuario}`);
   }
 
   postCriarCliente(cliente : ICliente){

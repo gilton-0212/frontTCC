@@ -5,6 +5,7 @@ import { LazyLoadEvent } from 'primeng/api';
 import { ProdutoService } from '../produto.service';
 import { Page } from 'src/app/models/page';
 import { AuthService } from 'src/app/Security/Service/auth.service';
+import { IVenda } from 'src/app/venda/IVenda';
 
 @Component({
   selector: 'app-produto-lista',
@@ -23,19 +24,24 @@ export class ProdutoListaComponent implements OnInit {
 
   loading = true;
 
-  list: ProductResumList[] = [];
+  list: ProductResumList[] = new Array<ProductResumList>();
 
   options: number[] = [20, 40, 80, 120];
 
-  displayModal?: boolean;
+  displayModal = false;
 
   carrinho?: any = [];
 
-  quantidade: any = 1;
+  quantidade: number = 0;
+
+  valorTotal: number = 0;
+
+  
 
   constructor(private service: ProdutoService, private usuarioService: AuthService) { }
 
   ngOnInit(): void {
+    console.log('list => ', this.list);
     this.search(new Filter());
   }
 
@@ -65,18 +71,34 @@ export class ProdutoListaComponent implements OnInit {
   private handlerResultResponse(result: Page<ProductResumList>) {
     this.totalRecords = result.totalElements;
     this.list = result.content;
+
+    this.list.forEach(product => product.quantidade = 1);
+
     this.loading = false;
   }
 
   showModalDialog() {
     this.displayModal = true;
+    // this.carrinho!.forEach((element: { id: any; nome: any; quantidade: number; preco: number; }) => {
+    //   this.item!.produto!.id = element.id;
+    //   this.item!.produto!.nome = element.nome;
+    //   this.item!.quantidade = element.quantidade;
+    //   this.valorTotal = this.valorTotal! + (element.preco * element.quantidade);
+    //   this.venda.itens.push(this.item!);
+    // });
+
+    // //this.venda.cliente.id = this.idUsuario!;
+    // this.venda.dataVenda = new Date().toDateString();
+    // this.venda.valorTotal = this.valorTotal;
+
+    // console.log('venda: ', this.venda)
+  
   }
 
   adicionarProduto(produto: ProductResumList){
     this.usuarioService.recuperarUsuario().subscribe(res =>{
       console.log(res)
     })
-    console.log(produto)
     this.carrinho.push(produto);
      alert('Produto Adicionado ao Carrinho')
 
