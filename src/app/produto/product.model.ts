@@ -1,3 +1,4 @@
+import { nome } from "../models/nome.model";
 import { ITipoproduto } from "../tipoproduto/ITipoproduto";
 import { Name } from "./name.model";
 
@@ -15,6 +16,7 @@ export interface Product {
   ativo: string;
   situacao: string;
   unidadeMedida: string;
+  estabelecimento: nome
 
 }
 

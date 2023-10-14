@@ -6,6 +6,9 @@ import { DomSanitizer, SafeUrl } from '@angular/platform-browser';
 import { TipoprodutoService } from 'src/app/tipoproduto/tipoproduto.service';
 import { nome } from 'src/app/models/nome.model';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ClienteService } from 'src/app/cliente/cliente.service';
+import { AuthService } from 'src/app/Security/Service/auth.service';
+import { EstabelecimentoService } from 'src/app/estabelecimento/estabelecimento.service';
 
 @Component({
   selector: 'app-produto-form',
@@ -21,7 +24,7 @@ export class ProdutoFormComponent implements OnInit {
 
   formulario!: FormGroup;
 
-  tipoProduto! : nome[];
+  tipoProduto!: nome[];
 
   unidades = [
     { label: 'Unidade', value: 'UNIDADE' },
@@ -42,48 +45,56 @@ export class ProdutoFormComponent implements OnInit {
   ];
 
   simNao = [
-    {label: 'Sim', value: 'SIM'},
-    {label: 'Não', value: 'NAO'},
+    { label: 'Sim', value: 'SIM' },
+    { label: 'Não', value: 'NAO' },
   ];
 
   situacoes = [
-    {label: 'Disponível', value: 'DISPONIVEL'},
-    {label: 'Indisponível', value: 'INDISPONIVEL'},
+    { label: 'Disponível', value: 'DISPONIVEL' },
+    { label: 'Indisponível', value: 'INDISPONIVEL' },
   ]
+
+  estabelecimento!: nome;
+
+  usuario!: any;
 
   constructor(
     private produtoService: ProdutoService,
     private form: FormBuilder,
     private tipoProdutoService: TipoprodutoService,
-    private route : ActivatedRoute,
-    private router : Router,
+    private route: ActivatedRoute,
+    private router: Router,
+    private usuarioService: AuthService,
+    private estabelecimentoService: EstabelecimentoService
   ) { }
 
-  ngOnInit(): void {
-
-    const id = this.route.snapshot.params['id'];
-    console.log(id)
-    if (id) {
-      this.preencherFormulario(id);
-    }
+  async ngOnInit(): Promise<void> {
 
     this.criarForm()
+
+    await this.usuarioService.recuperarUsuario().subscribe(async usuario => {
+      await this.estabelecimentoService.getEstabelecimentoUsuario(usuario.id).subscribe(res => {
+        this.formulario.get('estabelecimento')?.setValue(res)
+      })
+    })
+
   }
 
-  criarForm(){
-    this.formulario= this.form.group({
-      id:                   [null],
-      nome:                 [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      quantidadeEstoque:    [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      sku:                  [null,[Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
-      preco:                [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      marca:                [null,[Validators.required, Validators.minLength(3), Validators.maxLength(14)]],
-      descricao:            [null,[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      unidadeMedida:        ['UNIDADE',[Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
-      ativo:                ['SIM',[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      situacao:             ['DISPONIVEL',[Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
-      categoriaProduto:     [null],
-      imagemProduto:        [null]
+  criarForm() {
+    this.formulario = this.form.group({
+      id: [null],
+      nome: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      quantidadeEstoque: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      sku: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(20)]],
+      preco: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      marca: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(14)]],
+      descricao: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      unidadeMedida: ['UNIDADE', [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+      ativo: ['SIM', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      situacao: ['DISPONIVEL', [Validators.required, Validators.minLength(3), Validators.maxLength(50)]],
+      categoriaProduto: [null],
+      imagemProduto: [null],
+      estabelecimento: [null]
 
     })
   }
@@ -93,7 +104,7 @@ export class ProdutoFormComponent implements OnInit {
     this.arquivo = event.currentFiles[0].name;
   }
 
-  uploadImagem(event: { files: File[] }){
+  uploadImagem(event: { files: File[] }) {
     let formData = new FormData();
     formData.append('arquivo', event.files[0], event.files[0].name);
 
@@ -123,39 +134,19 @@ export class ProdutoFormComponent implements OnInit {
     });
   }
 
-  preencherFormulario(id: number) {
+  async adicionarProduto() {
+    console.log('estabelecimento: ', this.estabelecimento)
+    let produto = this.formulario.value;
 
-    this.produtoService.getProdutoId(id)
-      .subscribe(result => {
-        this.formulario.patchValue(result);
-
+    console.log(produto)
+    this.produtoService.postCriarProduto(produto).subscribe(
+      secesso => {
+        alert('Produto Cadastrado com Sucesso')
+        this.router.navigate(['home'])
       },
-        error => console.error(error)
-      );
-  }
+      error => console.error(error)
+    );
 
-  adicionarProduto() {
-
-    const produto = this.formulario.value;
-
-    //edicao
-    if(produto.id){
-      this.produtoService.putAtualizarProduto(produto).subscribe(
-        secesso => { alert('Produto Editado com Sucesso')
-          this.router.navigate(['produto'])
-        },
-        error => console.error(error)
-      );
-    }
-    //adicição
-    else{
-      this.produtoService.postCriarProduto(produto).subscribe(
-        secesso => { alert('Produto Cadastrado com Sucesso')
-          this.router.navigate(['produto'])
-        },
-        error => console.error(error)
-      );
-    }
   }
 
 }

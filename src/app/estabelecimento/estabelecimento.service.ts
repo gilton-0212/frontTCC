@@ -4,6 +4,7 @@ import { Observable, take } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { nome } from '../models/nome.model';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +24,10 @@ export class EstabelecimentoService {
 
   getEstabelecimentoId(id: number){
     return this.httpCliente.get<IEstabelecimento>(`${this.API}/${id}`);
+  }
+
+  getEstabelecimentoUsuario(idUsuario: number){
+    return this.httpCliente.get<nome>(`${this.API}/usuario/${idUsuario}`);
   }
 
   postCriarEstabelecimento(estabelecimento : IEstabelecimento){
