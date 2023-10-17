@@ -62,7 +62,7 @@
 
     <img [src]="imagemProduto" height=220px width=250px>
 
-    <p-fileUpload mode="basic"  [customUpload]="true" accept="image/*" (onSelect)="onFileChange($event)" (uploadHandler)="uploadImagem($event)"></p-fileUpload>
+    <p-fileUpload  mode="basic" chooseLabel="Carregar"  [customUpload]="true" accept="image/*" (onSelect)="onFileChange($event)" (uploadHandler)="uploadImagem($event)"></p-fileUpload>
 
   </div>
 
@@ -150,7 +150,7 @@
   </div>
 
   <div class="field col-3">
-    <button pButton pRipple type="button" styleClass="p-button-sm" label="Cancelar"
+    <button pButton pRipple type="button" routerLink="/meusprodutos" styleClass="p-button-sm" label="Cancelar"
       class="p-button-text p-button-plain"></button>
 
   </div>

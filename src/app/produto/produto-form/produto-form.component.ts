@@ -70,10 +70,13 @@ export class ProdutoFormComponent implements OnInit {
 
   async ngOnInit(): Promise<void> {
 
+
     this.criarForm()
+
 
     await this.usuarioService.recuperarUsuario().subscribe(async usuario => {
       await this.estabelecimentoService.getEstabelecimentoUsuario(usuario.id).subscribe(res => {
+        console.log('resposta estabe => ', res)
         this.formulario.get('estabelecimento')?.setValue(res)
       })
     })

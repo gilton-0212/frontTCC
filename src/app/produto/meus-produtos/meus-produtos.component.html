@@ -54,39 +54,46 @@
 <!-- Fim header -->
 <br>
 <br>
-<div class="container">
-  <div class="table-wrapper">
-      <div class="table-title">
-          <div class="row">
-              <div class="col-sm-6">
-      <h2>Meus <b>Produtos</b></h2>
-    </div>
-    <div class="col-sm-6">
-      <a routerLink="/produto/formulario" class="btn btn-primary" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Produto</span></a>
-    </div>
-          </div>
-      </div>
-<section class="py-5">
-  <div class="container px-4 px-lg-5 mt-5">
-    <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-12 row-cols-xl-4 justify-content-left">
-      <div class="col mb-5" *ngFor="let produto of list">
-        <div class="card h-100">
-          <!-- Product image-->
-          <img class="card-img-top" src="{{produto.imagemProduto}}" onerror="this.src='assets/DEFAULT.jpeg'" width="180"
-            height="150" alt="..." />
-          <!-- Product details-->
-          <div class="card-body p-4">
-            <div class="text-center">
-              <!-- Product name-->
-              <h5 class="fw-bolder">{{produto.nome}}</h5>
-              <!-- Product price-->
-              R$ {{produto.preco}}&nbsp;&nbsp;&nbsp;&nbsp;
-              <i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i>
-            </div>
-          </div>
-
+<br>
+<section>
+  <div class="container">
+      <div class="table-wrapper">
+          <div class="table-title">
+              <div class="row">
+                  <div class="col-sm-6">
+          <h2>Meus <b>Produtos</b></h2>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="col-sm-6">
+          <a routerLink="/produto/formulario" class="btn btn-primary" data-toggle="modal"><i class="material-icons">&#xE147;</i> <span>Adicionar Produtos</span></a>
+        </div>
+              </div>
+          </div>
+          <table class="table table-striped table-hover">
+              <thead>
+                  <tr>
+
+                      <th>#</th>
+                      <th>Nome</th>
+                      <th>Preço</th>
+
+
+                  </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <tr *ngFor="let produto of list">
+                      <td>{{produto.id}}</td>
+                      <td>{{ produto.nome}}</td>
+                      <td>{{produto.preco}}</td>
+
+                      <td>
+                          <a  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
+                          <a  class="delete" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Delete">&#xE872;</i></a>
+                      </td>
+                  </tr>
+
+              </tbody>
+          </table>
+          </div>
+          </div>
+          </section>
