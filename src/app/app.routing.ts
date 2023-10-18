@@ -10,6 +10,7 @@ import { TipoprodutoComponent } from './tipoproduto/tipoproduto.component';
 import { HubComponent } from './hub/hub.component';
 import { LoginComponent } from './Security/login/login.component';
 import { AuthGuard } from './Security/auth.guard';
+import { VendaListaComponent } from './venda/venda-lista/venda-lista.component';
 
 const APP_ROUTS: Routes=[
 
@@ -21,6 +22,7 @@ const APP_ROUTS: Routes=[
   { path: 'gestao', component: HubComponent, canActivate: [AuthGuard]},
   { path: 'gerencia', component: GerenciaEstabelecimentoComponent, canActivate: [AuthGuard]},
   { path: 'home', component: HomeComponent, canActivate: [AuthGuard]},
+  { path: 'venda-lista', component: VendaListaComponent, canActivate: [AuthGuard]},
   { path: '', component: LoginComponent, canActivate: [AuthGuard]}
 
 ];
