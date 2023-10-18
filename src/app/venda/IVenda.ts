@@ -18,4 +18,13 @@ export interface itens{
     quantidade:number;
     
 }
+
+export interface VendaResum{
+    id: number;
+    dataVenda: Date;
+    valorTotal: number;
+    status: string;
+    situacao: string;
+    nomeCliente: string;
+}
   
