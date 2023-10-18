@@ -1,48 +1,128 @@
 
 <!------ Include the above in your HEAD tag ---------->
 <app-head-cadastro></app-head-cadastro>
+<br>
 <section>
-<form class="row g-3 needs-validation" novalidate [formGroup]="formulario">
-<div class="container rounded bg-white mt-5 mb-5">
-  <div class="row">
-      <div class="col-md-12 border-right">
-          <div class="p-3 py-5">
-              <div class="d-flex justify-content-between align-items-center mb-4">
-                  <h4 class="text-right">Meu Cadastro</h4>
-              </div>
-              <div class="row mt-2">
-                  <div class="col-md-6"><label class="labels">Nome</label><input type="text" class="form-control" id="nome" placeholder="Nome Completo" formControlName="nome" value="" [ngClass]="{'is-invalid': submitted && hasError('nome')}" required ></div>
-                  <div class="col-md-6"><label class="labels">CPF</label><input type="text" class="form-control" id="cpf" value="" formControlName="cpf" placeholder="CPF" [ngClass]="{'is-invalid': submitted && hasError('cpf')}" required></div>
-                </div>
-              <div class="row mt-3">
-                  <div class="col-md-4"><label class="labels">Data Nascimento</label><input type="text" class="form-control" id="dataNascimento" placeholder="Data Nascimento" formControlName="dataNascimento" value="" [ngClass]="{'is-invalid': submitted && hasError('dataNascimento')}" required></div>
-                  <div class="col-md-4"><label class="labels">Telefone</label><input type="text" class="form-control" id="telefone" placeholder="Telefone" formControlName="telefone" [ngClass]="{'is-invalid': submitted && hasError('telefone')}" required ></div>
-                  <div class="col-md-4"><label class="labels">CEP</label><input type="text" class="form-control" placeholder="CEP" formControlName="cep" value="" [ngClass]="{'is-invalid': submitted && hasError('cep')}" required ></div>
-              </div>
-              <div class="row mt-3">
-                  <div class="col-md-3"><label class="labels">Logradouro</label><input type="text" class="form-control" id="logradouro" placeholder="Logradouro" formControlName="logradouro" value="" [ngClass]="{'is-invalid': submitted && hasError('logradouro')}" required ></div>
-                  <div class="col-md-3"><label class="labels">Numero</label><input type="text" class="form-control" id="numero" placeholder="Numero" value="" formControlName="numero" [ngClass]="{'is-invalid': submitted && hasError('numero')}" required></div>
-                  <div class="col-md-3"><label class="labels">Bairro</label><input type="text" class="form-control" id="bairro" value="" placeholder="Bairro" formControlName="bairro" [ngClass]="{'is-invalid': submitted && hasError('bairro')}" required></div>
-                  <div class="col-md-3"><label class="labels">Cidade</label><input type="text" class="form-control" id="nomeMunicipio" value="" placeholder="Cidade" formControlName="nomeMuunicipio" [ngClass]="{'is-invalid': submitted && hasError('municipio')}" required ></div>
-              </div>
-              <div class="row mt-3">
-                <div class="col-md-3"><label class="labels">UF</label><input type="text" class="form-control" id="uf" placeholder="UF" value="" formControlName="uf" [ngClass]="{'is-invalid': submitted && hasError('uf')}" required></div>
-                <div class="col-md-3"><label class="labels">País</label><input type="text" class="form-control" id="pais" placeholder="Pais" value="" formControlName="pais" [ngClass]="{'is-invalid': submitted && hasError('nomePais')}" required></div>
-                <div class="col-md-6"><label class="labels">Complemento</label><input type="text" class="form-control" id="complemento" value="" formControlName="complemento" placeholder="Complemento" [ngClass]="{'is-invalid': submitted && hasError('complemento')}" required></div>
-            </div>
-            <div class="row mt-2">
-              <div class="col-md-6"><label class="labels">E-mail</label><input type="text" class="form-control" id="email" placeholder="email" value="" formControlName="email" [ngClass]="{'is-invalid': submitted && hasError('email')}" required></div>
-              <div class="col-md-6"><label class="labels">Senha</label><input type="text" class="form-control" id="senha" value="" placeholder="senha"  formControlName="senha" [ngClass]="{'is-invalid': submitted && hasError('senha')}" required></div>
-            </div>
-              <div class="mt-5 text-center"><div>
-                <button type="submit" class="btn btn-success" (click)="adicionarCliente()">Salvar</button>
-                &nbsp;
-                <button type="button" class="btn btn-default" routerLink="/cliente">Cancelar</button>
-              </div></div>
-          </div>
-      </div>
+  <div class="grid p-fluid" novalidate [formGroup]="formulario">
+
+    <div class="field col-12">
+      <h4>Meu Cadastro</h4>
+    </div>
+
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="nome">
+        <label for="inputtext">Nome</label>
+      </span>
+    </div>
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <p-inputNumber inputId="inputnumber" formControlName="cpf"></p-inputNumber>
+        <label for="inputnumber">cpf</label>
+      </span>
+    </div>
+
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="dataNascimento">
+        <label for="inputtext">Data Nascimento</label>
+      </span>
+    </div>
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="telefone">
+        <label for="inputtext">Telefone</label>
+      </span>
+    </div>
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="cep">
+        <label for="inputtext">CEP</label>
+      </span>
+    </div>
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="logradouro">
+        <label for="inputtext">Logradouro</label>
+      </span>
+    </div>
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <p-inputNumber inputId="inputnumber" formControlName="numero"></p-inputNumber>
+        <label for="inputnumber">Numero</label>
+      </span>
+    </div>
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="bairro">
+        <label for="inputtext">Bairro</label>
+      </span>
+    </div>
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="nomeMunicipio">
+        <label for="inputtext">Cidade</label>
+      </span>
+    </div>
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="uf">
+        <label for="inputtext">UF</label>
+      </span>
+    </div>
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="nomePais">
+        <label for="inputtext">Pais</label>
+      </span>
+    </div>
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="complemento">
+        <label for="inputtext">Complemento</label>
+      </span>
+    </div>
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="email" [ngClass]="{'is-invalid': submitted && hasError('email')}" required>
+        <label for="inputtext">E-mail</label>
+      </span>
+    </div>
+
+    <div class="field col-4">
+      <span class="p-float-label">
+        <input type="text" id="inputtext" pInputText formControlName="senha" [ngClass]="{'is-invalid': submitted && hasError('senha')}" required>
+        <label for="inputtext">Senha</label>
+      </span>
+    </div>
+
   </div>
-</div>
-</form>
+
+  <div class="grid p-fluid">
+    <div class="field col-3">
+      <p-button label="Salvar" (onClick)="adicionarCliente()" styleClass="p-button-sm"></p-button>
+    </div>
+
+    <div class="field col-3">
+      <button pButton pRipple type="button" routerLink="/" styleClass="p-button-sm" label="Cancelar"
+        class="p-button-text p-button-plain"></button>
+
+    </div>
+  </div>
+
 </section>
+
 
