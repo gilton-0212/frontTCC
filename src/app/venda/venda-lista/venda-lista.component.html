@@ -1,32 +1,109 @@
-<section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-12 row-cols-xl-4 justify-content-left">
-            <div class="col mb-5" *ngFor="let venda of vendas">
-                <div class="card h-100">
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h6 class="fw-bolder">Cliente: {{venda.nomeCliente}}</h6>
-                            <!-- Product price-->
-                            Valor Venda: R$ {{venda.valorTotal}}
+<html>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
-                        </div>
-                        <div class="text-center">
-                            Data Venda: {{venda.dataVenda | date: 'dd/MM/yyyy'}}
-                        </div>
+<body>
+<section>
+  <div class="col col-md-4">
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" routerLink="/gestao" href="#">GESTÃO</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a routerLink="/cliente" class="nav-link" href="#"
+                  >Coletas</a
+                >
+              </li>
 
-                        <div class="field col-4">
-                            <label for="inputnumber">Situação</label>
-                           <p-dropdown [options]="status"  [(ngModel)]="venda.status" optionLabel="label" optionValue="value"></p-dropdown>
-                        </div>
+              <li class="nav-item">
+                <a routerLink="/venda-lista" class="nav-link" href="#"
+                  >Entregas</a
+                >
+              </li>
 
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                    </div>
-                </div>
-            </div>
+
+              <li class="nav-item">
+                <a routerLink="/tipoestabelecimento" class="nav-link"
+                  >Categorias de Estabelecimento</a
+                >
+              </li>
+              <li class="nav-item">
+                <a routerLink="/estabelecimento" class="nav-link" href="#"
+                  >Estabelecimentos</a
+                >
+              </li>
+              <li class="nav-item">
+                <a routerLink="/tipoproduto" class="nav-link" href="#"
+                  >Categorias de Produtos</a
+                >
+              </li>
+
+            </ul>
+
+            <!--
+            <form class="d-flex">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Pesquise"
+                aria-label="Pesquise"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Pesquise
+              </button>
+            </form>-->
+          </div>
         </div>
-    </div>
+      </nav>
+    </header>
+  </div>
 </section>
+<br>
+<br>
+<br>
+<div class="container">
+  <div class="table-wrapper">
+      <div class="table-title">
+          <div class="row">
+              <div class="col-sm-6">
+      <h2>Todas <b>Vendas</b></h2>
+    </div>
+<table class="table table-striped table-hover">
+  <thead>
+      <tr>
+
+          <th>#</th>
+          <th>Cliente</th>
+          <th>Valor Total</th>
+          <th>Data Venda</th>
+          <th>Situação</th>
+      </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <tr *ngFor="let venda of vendas">
+          <td>{{ venda.id}}</td>
+          <td>{{ venda.nomeCliente}}</td>
+          <td>{{venda.valorTotal}}</td>
+          <td>{{venda.dataVenda}}</td>
+          <td><p-dropdown [options]="status"  [(ngModel)]="venda.status" optionLabel="label" optionValue="value"></p-dropdown></td>
+
+      </tr>
+
+  </tbody>
+</table>
