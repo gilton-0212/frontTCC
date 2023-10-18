@@ -57,4 +57,8 @@ export class HubComponent implements OnInit {
     this.router.navigate(['/cliente']);
   }
 
+  irVendas(){
+    this.router.navigate(['/venda-lista'])
+  }
+
 }

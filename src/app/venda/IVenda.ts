@@ -27,4 +27,12 @@ export interface VendaResum{
     situacao: string;
     nomeCliente: string;
 }
+
+
+export const Situacao = [
+    { label: 'PREPARAR', value: 'PREPARAR' },
+    { label: 'SEPRADO', value: 'SEPRADO' },
+    { label: 'COLETADO', value: 'COLETADO' },
+    { label: 'ENTREGUE', value: 'ENTREGUE' },
+  ];
   

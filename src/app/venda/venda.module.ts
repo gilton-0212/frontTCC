@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { VendaComponent } from './venda.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from 'primeng/api';
 import { AutoCompleteModule } from 'primeng/autocomplete';
 import { CheckboxModule } from 'primeng/checkbox';
@@ -40,6 +40,7 @@ import { VendaListaComponent } from './venda-lista/venda-lista.component';
     DropdownModule,
     FileUploadModule,
     DialogModule,
+    FormsModule
   ],
   exports:[
     VendaComponent
