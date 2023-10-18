@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HubComponent implements OnInit {
 
+  usuario! : any
+
   constructor() { }
 
   ngOnInit(): void {

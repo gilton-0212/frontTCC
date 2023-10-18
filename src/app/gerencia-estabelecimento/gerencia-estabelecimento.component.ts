@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../Security/Service/auth.service';
 
 @Component({
   selector: 'app-gerencia-estabelecimento',
@@ -7,9 +8,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GerenciaEstabelecimentoComponent implements OnInit {
 
-  constructor() { }
+  usuario!: any;
+
+  constructor(private login: AuthService) { }
 
   ngOnInit(): void {
+    this.login.recuperarUsuario().subscribe(res=>{
+      this.usuario = res;
+      console.log(this.usuario);
+
+    })
   }
 
-}
+    logout(){
+      this.login.logout();
+    }
+  }
