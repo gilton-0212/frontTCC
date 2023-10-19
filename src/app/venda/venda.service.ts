@@ -7,18 +7,18 @@ import { Filter } from "../models/filter";
 import { Page } from "../models/page";
 
 @Injectable({
-    providedIn: 'root'
-  })
+  providedIn: 'root'
+})
 
-  export class VendaService {
+export class VendaService {
 
-    private readonly API = `${environment.API}/cadastros/venda`;
-  
-    constructor(private httpCliente: HttpClient) { }
+  private readonly API = `${environment.API}/cadastros/venda`;
 
-    getTodasVendas(filter: Filter):Observable<Page<VendaResum>>{
-  
-      let params = new HttpParams()
+  constructor(private httpCliente: HttpClient) { }
+
+  getTodasVendas(filter: Filter): Observable<Page<VendaResum>> {
+
+    let params = new HttpParams()
       .set('page', filter.page.toString())
       .set('size', filter.itemsPerPage.toString())
       .set('sort', `${filter.sortField},${filter.sortOrder}`);
@@ -33,12 +33,19 @@ import { Page } from "../models/page";
       search = search.substring(0, (search.length - 1));
       params = params.append('search', search);
     }
-      return this.httpCliente.get<Page<VendaResum>>(`${this.API}`, { params });
-  
-  }
-
-    postCriarVenda(produto : IVenda){
-        return this.httpCliente.post<IVenda>(this.API, produto).pipe(take(1));
-      }
+    return this.httpCliente.get<Page<VendaResum>>(`${this.API}`, { params });
 
   }
+
+  postCriarVenda(produto: IVenda) {
+    return this.httpCliente.post<IVenda>(this.API, produto).pipe(take(1));
+  }
+
+  atualizarStatusVenda(idVenda: number, statusVenda: String){
+    let params = new HttpParams()
+    .set('id', idVenda.toString())
+    .set('statusVenda', statusVenda.toString())
+    return this.httpCliente.put(`${this.API}/statusVenda`,  params );
+  }
+
+}

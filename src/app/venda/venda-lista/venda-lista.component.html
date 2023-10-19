@@ -99,9 +99,12 @@
       <tr *ngFor="let venda of vendas">
           <td>{{ venda.id}}</td>
           <td>{{ venda.nomeCliente}}</td>
-          <td>{{venda.valorTotal}}</td>
-          <td>{{venda.dataVenda}}</td>
+          <td>{{venda.valorTotal | currency : 'BRL'}}</td>
+          <td>{{venda.dataVenda | date: 'dd/MM/yyyy'}}</td>
           <td><p-dropdown [options]="status"  [(ngModel)]="venda.status" optionLabel="label" optionValue="value"></p-dropdown></td>
+          <td> 
+            <p-button label="Confirmar" (onClick)="teste(venda)" styleClass="p-button-sm"></p-button>
+          </td>
 
       </tr>
 

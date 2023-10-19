@@ -15,7 +15,7 @@ export class VendaListaComponent implements OnInit {
 
   status = [
     { label: 'PREPARAR', value: 'PREPARAR' },
-    { label: 'SEPRADO', value: 'SEPRADO' },
+    { label: 'SEPARADO', value: 'SEPARADO' },
     { label: 'COLETADO', value: 'COLETADO' },
     { label: 'ENTREGUE', value: 'ENTREGUE' },
     
@@ -38,6 +38,13 @@ export class VendaListaComponent implements OnInit {
   consultarTotalVendas(){
     this.vendaService.getTodasVendas(new Filter()).subscribe(res => {
       this.vendas = res.content
+    })
+  }
+
+  teste(venda: any){
+    console.log('venda => ', venda)
+    this.vendaService.atualizarStatusVenda(venda.id, venda.status).subscribe(res => {
+      alert('Status alterado com Sucesso!')
     })
   }
 
