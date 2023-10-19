@@ -103,7 +103,7 @@
           <td>{{venda.dataVenda | date: 'dd/MM/yyyy'}}</td>
           <td><p-dropdown [options]="status"  [(ngModel)]="venda.status" optionLabel="label" optionValue="value"></p-dropdown></td>
           <td> 
-            <p-button label="Confirmar" (onClick)="teste(venda)" styleClass="p-button-sm"></p-button>
+            <p-button label="Confirmar" (onClick)="mudarStatusVenda(venda)" styleClass="p-button-sm"></p-button>
           </td>
 
       </tr>
