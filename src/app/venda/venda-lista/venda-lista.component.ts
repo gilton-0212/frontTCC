@@ -41,7 +41,7 @@ export class VendaListaComponent implements OnInit {
     })
   }
 
-  teste(venda: any){
+  mudarStatusVenda(venda: any){
     console.log('venda => ', venda)
     this.vendaService.atualizarStatusVenda(venda.id, venda.status).subscribe(res => {
       alert('Status alterado com Sucesso!')
