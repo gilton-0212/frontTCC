@@ -30,7 +30,6 @@ export class EstabelecimentoFormularioComponent implements OnInit {
   ngOnInit(): void {
 
     const id = this.route.snapshot.params['id'];
-    console.log(id)
     if (id) {
       this.preencherFormulario(id);
     }
@@ -99,7 +98,6 @@ export class EstabelecimentoFormularioComponent implements OnInit {
 
   onSubmit(){
     this.submitted = true;
-    console.log(this.formulario.value);
     if(this.formulario.valid){
       console.log('submit');
       this.estabelecimentoService.postCriarEstabelecimento(this.formulario.value).subscribe(

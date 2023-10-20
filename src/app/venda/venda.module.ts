@@ -15,6 +15,7 @@ import { PasswordModule } from 'primeng/password';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { ProdutoRoutes } from '../produto/produto.routing';
 import { VendaListaComponent } from './venda-lista/venda-lista.component';
+import { VendaProdutoListComponent } from './venda-produto-list/venda-produto-list.component';
 
 
 
@@ -22,7 +23,8 @@ import { VendaListaComponent } from './venda-lista/venda-lista.component';
 @NgModule({
   declarations: [
     VendaComponent,
-    VendaListaComponent
+    VendaListaComponent,
+    VendaProdutoListComponent
   ],
   imports: [
     CommonModule,

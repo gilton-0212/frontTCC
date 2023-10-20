@@ -80,7 +80,7 @@ export class AuthService {
     localStorage.setItem(LOCAL_STORAGE, token);
   }
 
-  public recuperarUsuario(){
-    return this.http.get<any>( `${environment.API}/usuario`);
+  public recuperarUsuario(): Promise<any>{
+    return this.http.get<any>( `${environment.API}/usuario`).toPromise();
   }
 }

@@ -77,7 +77,6 @@ export class TipoestabelecimentoFormularioComponent implements OnInit {
 
   onSubmit(){
     this.submitted = true;
-    console.log(this.formulario.value);
     if(this.formulario.valid){
       console.log('submit');
       this.tipoestabelecimentoserice.postCriarTipoEstabelecimento(this.formulario.value).subscribe(

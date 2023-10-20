@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../Security/Service/auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-gerencia-estabelecimento',
@@ -10,17 +11,24 @@ export class GerenciaEstabelecimentoComponent implements OnInit {
 
   usuario!: any;
 
-  constructor(private login: AuthService) { }
+  constructor(private login: AuthService,  private router: Router) { }
 
   ngOnInit(): void {
-    this.login.recuperarUsuario().subscribe(res=>{
+    this.login.recuperarUsuario().then(res=>{
       this.usuario = res;
-      console.log(this.usuario);
 
     })
   }
 
     logout(){
       this.login.logout();
+    }
+
+    irProdutosVendidos(){
+      this.router.navigate(['/produtos-vendidos']);
+    }
+
+    irProdutos(){
+      this.router.navigate(['/meusprodutos']);
     }
   }

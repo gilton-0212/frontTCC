@@ -96,7 +96,7 @@ export class ProdutoListaComponent implements OnInit {
   }
 
   adicionarProduto(produto: ProductResumList){
-    this.usuarioService.recuperarUsuario().subscribe(res =>{
+    this.usuarioService.recuperarUsuario().then(res =>{
       console.log(res)
     })
     this.carrinho.push(produto);

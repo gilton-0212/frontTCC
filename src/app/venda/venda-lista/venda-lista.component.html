@@ -89,6 +89,7 @@
 
           <th>#</th>
           <th>Cliente</th>
+          <th>Estabelecimento</th>
           <th>Valor Total</th>
           <th>Data Venda</th>
           <th>Situação</th>
@@ -99,6 +100,7 @@
       <tr *ngFor="let venda of vendas">
           <td>{{ venda.id}}</td>
           <td>{{ venda.nomeCliente}}</td>
+          <td>{{venda.nomeEstabelecimento}}</td>
           <td>{{venda.valorTotal | currency : 'BRL'}}</td>
           <td>{{venda.dataVenda | date: 'dd/MM/yyyy'}}</td>
           <td><p-dropdown [options]="status"  [(ngModel)]="venda.status" optionLabel="label" optionValue="value"></p-dropdown></td>

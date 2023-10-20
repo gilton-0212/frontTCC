@@ -39,7 +39,6 @@ export class MeusProdutosComponent implements OnInit {
   }
 
   searchPagination(event: LazyLoadEvent) {
-    console.log('evento', event)
     const pagina = (event.first ?? 0) / (event.rows ?? 0);
 
     this.itemsPerPage = event.rows ?? 20;
@@ -51,7 +50,6 @@ export class MeusProdutosComponent implements OnInit {
   }
 
   search(event: Filter) {
-    console.log(event)
     this.loading = true;
     this.service.getTodosProdutos(event)
       .subscribe({
@@ -71,10 +69,8 @@ export class MeusProdutosComponent implements OnInit {
   }
 
   adicionarProduto(produto: ProductResumList){
-    this.usuarioService.recuperarUsuario().subscribe(res =>{
-      console.log(res)
+    this.usuarioService.recuperarUsuario().then(res =>{
     })
-    console.log(produto)
     this.carrinho.push(produto);
      alert('Produto Adicionado ao Carrinho')
 

@@ -55,6 +55,10 @@ import { Product } from "./product.model";
   
     }
   
+    produtosVendidosEstabelecimento(id: number){
+      return this.httpCliente.get(`${this.API}/vendidos/estabelecimento/${id}`)
+    }
+
     deletarProduto(id: number | undefined){
       return this.httpCliente.delete(`${this.API}/${id}`).pipe(take(1));
     }

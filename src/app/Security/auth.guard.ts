@@ -25,7 +25,6 @@ export class AuthGuard implements CanActivate {
     | boolean
     | UrlTree {
     if (this.auth.isAccessTokenInvalid()) {
-      console.log('Navegação com access token inválido. Obtendo novo token...');
 
       return this.auth.getNewAccessToken().then(() => {
         if (this.auth.isAccessTokenInvalid()) {

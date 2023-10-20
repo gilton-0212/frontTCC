@@ -74,9 +74,8 @@ export class ProdutoFormComponent implements OnInit {
     this.criarForm()
 
 
-    await this.usuarioService.recuperarUsuario().subscribe(async usuario => {
+    await this.usuarioService.recuperarUsuario().then(async usuario => {
       await this.estabelecimentoService.getEstabelecimentoUsuario(usuario.id).subscribe(res => {
-        console.log('resposta estabe => ', res)
         this.formulario.get('estabelecimento')?.setValue(res)
       })
     })
@@ -122,7 +121,6 @@ export class ProdutoFormComponent implements OnInit {
           this.imagemProduto = 'assets/' + substringDesejada.trim(); // Use trim() para remover espaços em branco extras
           this.formulario.get('imagemProduto')?.setValue(this.imagemProduto)
         } else {
-          console.log("Não possivel achar o caminho da imagem");
         }
       }
     });
@@ -138,7 +136,6 @@ export class ProdutoFormComponent implements OnInit {
   }
 
   async adicionarProduto() {
-    console.log('estabelecimento: ', this.estabelecimento)
     let produto = this.formulario.value;
 
     console.log(produto)

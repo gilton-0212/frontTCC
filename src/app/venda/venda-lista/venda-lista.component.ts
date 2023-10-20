@@ -11,7 +11,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class VendaListaComponent implements OnInit {
 
-  vendas!: VendaResum []
+  vendas!: any []
 
   status = [
     { label: 'PREPARAR', value: 'PREPARAR' },
@@ -36,8 +36,8 @@ export class VendaListaComponent implements OnInit {
   }
 
   consultarTotalVendas(){
-    this.vendaService.getTodasVendas(new Filter()).subscribe(res => {
-      this.vendas = res.content
+    this.vendaService.consultarVendas().subscribe(res => {
+      this.vendas = res
     })
   }
 

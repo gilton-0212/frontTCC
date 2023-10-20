@@ -14,9 +14,8 @@ export class HomeComponent implements OnInit {
   constructor(private login: AuthService) { }
 
   ngOnInit(): void {
-    this.login.recuperarUsuario().subscribe(res => {
+    this.login.recuperarUsuario().then(res => {
       this.usuario = res;
-      console.log(this.usuario)
     })
   }
 
