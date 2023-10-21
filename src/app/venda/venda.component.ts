@@ -69,7 +69,6 @@ export class VendaComponent implements OnInit {
       this.item!.produto!.id = element.id;
       this.item!.produto!.nome = element.nome;
       this.item!.quantidade = element.quantidade;
-      this.valorTotal = this.valorTotal! + (element.preco * element.quantidade);
       this.venda.itens.push(this.item!);
     });
     console.log('cliente: ', this.cliente!);
