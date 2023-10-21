@@ -13,15 +13,7 @@ import { AuthService } from 'src/app/Security/Service/auth.service';
 })
 export class MeusProdutosComponent implements OnInit {
 
-
-
-
-
   estabelecimento!: any;
-
-
-
-
 
   list!: any
 
