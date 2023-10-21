@@ -52,4 +52,8 @@ export class VendaService {
     return this.httpCliente.put(`${this.API}/statusVenda`,  params );
   }
 
+  comprasPorCliente(id: number){
+    return this.httpCliente.get(`${this.API}/cliente/${id}`)
+  }
+
 }

@@ -13,74 +13,38 @@ import { AuthService } from 'src/app/Security/Service/auth.service';
 })
 export class MeusProdutosComponent implements OnInit {
 
-  vendaRealizada?: boolean;
 
-  filter: Filter = new Filter();
-  itemsPerPage = 100;
 
-  totalRecords = 0;
 
-  loading = true;
 
-  list: ProductResumList[] = [];
+  estabelecimento!: any;
 
-  options: number[] = [20, 40, 80, 120];
 
-  displayModal?: boolean;
 
-  carrinho?: any = [];
 
-  quantidade: any = 1;
+
+  list!: any
 
   constructor(private service: ProdutoService, private usuarioService: AuthService) { }
 
-  ngOnInit(): void {
-    this.search(new Filter());
-  }
+  async ngOnInit(): Promise<void> {
+    await this.usuarioService.recuperarUsuario().then(res => {
+       this.estabelecimento = res;
+     })
 
-  searchPagination(event: LazyLoadEvent) {
-    const pagina = (event.first ?? 0) / (event.rows ?? 0);
+     this.consultarProdutosVendidos();
 
-    this.itemsPerPage = event.rows ?? 20;
-    this.filter.page = pagina;
-    this.filter.itemsPerPage = this.itemsPerPage;
-    this.filter.sortField = `${event.sortField ? event.sortField : 'id'}`;
-    this.filter.sortOrder = event.sortOrder === 1 ? SortOrder.ASC : SortOrder.DESC;
-    this.search(this.filter);
-  }
+   }
 
-  search(event: Filter) {
-    this.loading = true;
-    this.service.getTodosProdutos(event)
-      .subscribe({
-        next: this.handlerResultResponse.bind(this),
-        //error: this.handleError.bind(this)
-      });
-  }
-
-  private handlerResultResponse(result: Page<ProductResumList>) {
-    this.totalRecords = result.totalElements;
-    this.list = result.content;
-    this.loading = false;
-  }
-
-  showModalDialog() {
-    this.displayModal = true;
-  }
-
-  adicionarProduto(produto: ProductResumList){
-    this.usuarioService.recuperarUsuario().then(res =>{
+   consultarProdutosVendidos(){
+    console.log(this.estabelecimento)
+    this.service.produtosPorEstabelecimento(this.estabelecimento!.id).subscribe(res => {
+      this.list = res;
+      console.log(res)
     })
-    this.carrinho.push(produto);
-     alert('Produto Adicionado ao Carrinho')
-
   }
 
-  ConcluirVenda(event: boolean){
-    this.displayModal = false
-    this.carrinho = [];
-    console.log(event)
-  }
+
 }
 
 

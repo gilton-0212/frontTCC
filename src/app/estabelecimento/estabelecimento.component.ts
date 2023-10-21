@@ -13,7 +13,7 @@ export class EstabelecimentoComponent implements OnInit {
 
   formulario!: FormGroup;
 
-  cliente?: nome;
+  estabelecimento?: nome;
 
   constructor(private estabelecimentoService : EstabelecimentoService,
     private usuarioService: AuthService) { }
@@ -22,7 +22,7 @@ export class EstabelecimentoComponent implements OnInit {
       console.log(1)
       await this.usuarioService.recuperarUsuario().then(async usuario => {
         await this.estabelecimentoService.getEstabelecimentoUsuario(usuario.id).subscribe(res => {
-          this.cliente = res
+          this.estabelecimento = res
         })
       })
 

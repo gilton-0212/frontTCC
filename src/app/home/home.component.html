@@ -25,7 +25,7 @@
                       <a routerLink="/" class="nav-link">Meus Dados</a>
                     </li>
                     <li class="nav-item" *ngIf="usuario!?.role === 'usuario'">
-                      <a routerLink="z" class="nav-link" href="">Minhas Compras</a>
+                      <a routerLink="/compras" class="nav-link" href="">Minhas Compras</a>
                     </li>
                     <li class="nav-item" *ngIf="usuario?.role === 'Estabelecimento'">
                       <a routerLink="/meusprodutos" class="nav-link" href="">Produtos</a>

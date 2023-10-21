@@ -16,6 +16,7 @@ import { RadioButtonModule } from 'primeng/radiobutton';
 import { ProdutoRoutes } from '../produto/produto.routing';
 import { VendaListaComponent } from './venda-lista/venda-lista.component';
 import { VendaProdutoListComponent } from './venda-produto-list/venda-produto-list.component';
+import { ComprasClienteComponent } from './compras-cliente/compras-cliente.component';
 
 
 
@@ -24,7 +25,8 @@ import { VendaProdutoListComponent } from './venda-produto-list/venda-produto-li
   declarations: [
     VendaComponent,
     VendaListaComponent,
-    VendaProdutoListComponent
+    VendaProdutoListComponent,
+    ComprasClienteComponent
   ],
   imports: [
     CommonModule,

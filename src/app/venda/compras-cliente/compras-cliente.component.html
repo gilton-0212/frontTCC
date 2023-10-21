@@ -1,3 +1,4 @@
+<p>compras-cliente works!</p>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
 <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
@@ -78,10 +79,9 @@
               </thead>
               <tbody>
                 <tr>
-                  <tr *ngFor="let produto of list">
-                      <td>{{produto.nomeProduto}}</td>
-                      <td>{{produto.nomeCliente}}</td>
-                      <td>{{produto.quantidade}}</td>
+                  <tr *ngFor="let estabecimento of list">
+                      <td>{{estabecimento.dataVenda}}</td>
+
 
                   </tr>
 
