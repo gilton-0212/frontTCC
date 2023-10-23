@@ -18,13 +18,21 @@ export class VendaListaComponent implements OnInit {
     { label: 'SEPARADO', value: 'SEPARADO' },
     { label: 'COLETADO', value: 'COLETADO' },
     { label: 'ENTREGUE', value: 'ENTREGUE' },
-    
+
+  ]
+
+  status1 = [
+    { label: 'MOTO BOY1', value: 'MOTO BOY1' },
+    { label: 'MOTO BOY2', value: 'MOTO BOY2' },
+    { label: 'MOTO BOY3', value: 'MOTO BOY3' },
+    { label: 'MOTO BOY4', value: 'MOTO BOY4' },
+
   ]
 
   situacao = [
     { label: 'ATIVO', value: 'ATIVO' },
     { label: 'CANCELADO', value: 'CANCELADO' },
-    
+
   ]
 
   formulario!: FormGroup;

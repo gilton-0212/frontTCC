@@ -89,11 +89,13 @@
 
           <th>#</th>
           <th>Cliente</th>
-          <th>Estabelecimento</th>
           <th>Produto</th>
+          <th>Estabelecimento</th>
           <th>Valor Total</th>
           <th>Data Venda</th>
           <th>Situação</th>
+          <th>Entregador</th>
+          <th>Confirmar Alteração</th>
       </tr>
   </thead>
   <tbody>
@@ -106,7 +108,8 @@
           <td>{{venda.valorTotal | currency : 'BRL'}}</td>
           <td>{{venda.dataVenda | date: 'dd/MM/yyyy'}}</td>
           <td><p-dropdown [options]="status"  [(ngModel)]="venda.status" optionLabel="label" optionValue="value"></p-dropdown></td>
-          <td> 
+          <td><p-dropdown [options]="status1" optionLabel="label" optionValue="value"></p-dropdown></td>
+          <td>
             <p-button label="Confirmar" (onClick)="mudarStatusVenda(venda)" styleClass="p-button-sm"></p-button>
           </td>
 

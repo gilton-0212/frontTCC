@@ -11,7 +11,7 @@ import { ProdutoService } from 'src/app/produto/produto.service';
 })
 export class VendaProdutoListComponent implements OnInit {
 
-  list: any
+  list!: any
 
   estabelecimento!: any;
 
@@ -24,7 +24,7 @@ export class VendaProdutoListComponent implements OnInit {
     })
 
     this.consultarProdutosVendidos();
-   
+
   }
 
   consultarProdutosVendidos(){
@@ -32,6 +32,7 @@ export class VendaProdutoListComponent implements OnInit {
     this.produtoService.produtosVendidosEstabelecimento(this.estabelecimento!.id).subscribe(res => {
       this.list = res;
       console.log(res)
+      console.log("teste")
     })
   }
 

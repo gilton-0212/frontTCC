@@ -9,14 +9,14 @@ import { VendaService } from '../venda.service';
 })
 export class ComprasClienteComponent implements OnInit {
 
-  estabelecimento!: any;
-  list!: any
+  cliente!: any;
+  list!: any;
 
   constructor(private service: VendaService, private usuarioService: AuthService) { }
 
   async ngOnInit(): Promise<void> {
     await this.usuarioService.recuperarUsuario().then(res => {
-       this.estabelecimento = res;
+       this.cliente = res;
      })
 
      this.comprasfeitas();
@@ -24,8 +24,8 @@ export class ComprasClienteComponent implements OnInit {
    }
 
    comprasfeitas(){
-    console.log(this.estabelecimento)
-    this.service.comprasPorCliente(this.estabelecimento!.id).subscribe(res => {
+    console.log(this.cliente)
+    this.service.comprasPorCliente(this.cliente.id).subscribe(res => {
       this.list = res;
       console.log(res)
     })
