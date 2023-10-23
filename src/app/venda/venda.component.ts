@@ -58,20 +58,24 @@ export class VendaComponent implements OnInit {
       })
     })
 
-    await this.carrinho!.forEach(element => {
-      this.valorTotal = this.valorTotal! + (element.preco * element.quantidade);
-    })
+    this.carrinho!.forEach(element => {
+      const item = {
+        id: 0,
+        produto: {
+          id: element.id,
+          nome: element.nome,
+        },
+        quantidade: element.quantidade,
+      };
 
+      this.valorTotal = this.valorTotal! + (element.preco * element.quantidade);
+      this.venda.itens.push(item);
+    })
+    console.log('venda: ', this.venda)
   }
 
   fazerVenda() {
-    this.carrinho!.forEach(element => {
-      this.item!.produto!.id = element.id;
-      this.item!.produto!.nome = element.nome;
-      this.item!.quantidade = element.quantidade;
-      this.venda.itens.push(this.item!);
-    });
-    console.log('cliente: ', this.cliente!);
+
     this.venda.cliente = this.cliente!
     this.venda.dataVenda = new Date()
     this.venda.valorTotal = this.valorTotal;
