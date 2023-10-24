@@ -5,6 +5,7 @@ import { LazyLoadEvent } from 'primeng/api';
 import { ProdutoService } from '../produto.service';
 import { Page } from 'src/app/models/page';
 import { AuthService } from 'src/app/Security/Service/auth.service';
+import { EstabelecimentoService } from 'src/app/estabelecimento/estabelecimento.service';
 
 @Component({
   selector: 'app-meus-produtos',
@@ -17,11 +18,13 @@ export class MeusProdutosComponent implements OnInit {
 
   list!: any
 
-  constructor(private service: ProdutoService, private usuarioService: AuthService) { }
+  constructor(private service: ProdutoService, private usuarioService: AuthService, private estabelecimentoService: EstabelecimentoService) { }
 
   async ngOnInit(): Promise<void> {
-    await this.usuarioService.recuperarUsuario().then(res => {
-       this.estabelecimento = res;
+    await this.usuarioService.recuperarUsuario().then(async usuario => {
+      await this.estabelecimentoService.getEstabelecimentoUsuario(usuario.id).then(res => {
+        this.estabelecimento = res
+      })
      })
 
      this.consultarProdutosVendidos();
