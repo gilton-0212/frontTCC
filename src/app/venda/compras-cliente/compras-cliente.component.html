@@ -23,7 +23,7 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a routerLink="/produtos-Vendidos" class="nav-link"
+                <a routerLink="/produtos-vendidos" class="nav-link"
                   >Vendas</a
                 >
               </li>
@@ -82,9 +82,9 @@
                 <tr>
                   <tr *ngFor="let cliente of list">
                       <td>{{cliente.id}}</td>
-                      <td>{{cliente.dataVenda}}</td>
+                      <td>{{cliente.dataVenda  | currency : 'BRL'}}</td>
                       <td>{{cliente.status}}</td>
-                      <td>{{cliente.valorTotal}}</td>
+                      <td>{{cliente.valorTotal | currency : 'BRL'}}</td>
 
                   </tr>
 

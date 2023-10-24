@@ -26,7 +26,7 @@ export class ClienteService {
   }
 
   getClienteUsuario(idUsuario: number){
-    return this.httpCliente.get<nome>(`${this.API}/usuario/${idUsuario}`);
+    return this.httpCliente.get<nome>(`${this.API}/usuario/${idUsuario}`).toPromise();
   }
 
   postCriarCliente(cliente : ICliente){

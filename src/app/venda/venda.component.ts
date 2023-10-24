@@ -53,7 +53,7 @@ export class VendaComponent implements OnInit {
   async ngOnInit() {
     console.log(1)
     await this.usuarioService.recuperarUsuario().then(async usuario => {
-      await this.clienteService.getClienteUsuario(usuario.id).subscribe(res => {
+      await this.clienteService.getClienteUsuario(usuario.id).then(res => {
         this.cliente = res
       })
     })
