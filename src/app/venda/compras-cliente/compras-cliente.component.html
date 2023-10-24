@@ -82,7 +82,7 @@
                 <tr>
                   <tr *ngFor="let cliente of list">
                       <td>{{cliente.id}}</td>
-                      <td>{{cliente.dataVenda  | currency : 'BRL'}}</td>
+                      <td>{{cliente.dataVenda  | date : 'dd/MM/yyy'}}</td>
                       <td>{{cliente.status}}</td>
                       <td>{{cliente.valorTotal | currency : 'BRL'}}</td>
 
