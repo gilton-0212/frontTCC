@@ -84,7 +84,7 @@
                   <tr *ngFor="let produto of list">
                       <td>{{produto.id}}</td>
                       <td>{{ produto.nome}}</td>
-                      <td>{{produto.preco}}</td>
+                      <td>{{produto.preco| currency : 'BRL'}}</td>
 
                       <td>
                           <a  class="edit" data-toggle="modal"><i class="material-icons" data-toggle="tooltip" title="Edit">&#xE254;</i></a>
