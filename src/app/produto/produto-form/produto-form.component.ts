@@ -75,7 +75,7 @@ export class ProdutoFormComponent implements OnInit {
 
 
     await this.usuarioService.recuperarUsuario().then(async usuario => {
-      await this.estabelecimentoService.getEstabelecimentoUsuario(usuario.id).subscribe(res => {
+      await this.estabelecimentoService.getEstabelecimentoUsuario(usuario.id).then(res => {
         this.formulario.get('estabelecimento')?.setValue(res)
       })
     })

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/Security/Service/auth.service';
 import { ClienteService } from 'src/app/cliente/cliente.service';
+import { EstabelecimentoService } from 'src/app/estabelecimento/estabelecimento.service';
 import { nome } from 'src/app/models/nome.model';
 import { ProdutoService } from 'src/app/produto/produto.service';
 
@@ -15,12 +16,14 @@ export class VendaProdutoListComponent implements OnInit {
 
   estabelecimento!: any;
 
-  constructor(private produtoService: ProdutoService, private usuarioService: AuthService) {
+  constructor(private produtoService: ProdutoService, private usuarioService: AuthService, private estabelecimentoService: EstabelecimentoService) {
    }
 
   async ngOnInit(): Promise<void> {
-   await this.usuarioService.recuperarUsuario().then(res => {
-      this.estabelecimento = res;
+   await this.usuarioService.recuperarUsuario().then(async usuario => {
+    await this.estabelecimentoService.getEstabelecimentoUsuario(usuario.id).then(res => {
+      this.estabelecimento = res
+    })
     })
 
     this.consultarProdutosVendidos();

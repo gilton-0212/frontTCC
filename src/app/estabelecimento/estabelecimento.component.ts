@@ -21,7 +21,7 @@ export class EstabelecimentoComponent implements OnInit {
     async ngOnInit() {
       console.log(1)
       await this.usuarioService.recuperarUsuario().then(async usuario => {
-        await this.estabelecimentoService.getEstabelecimentoUsuario(usuario.id).subscribe(res => {
+        await this.estabelecimentoService.getEstabelecimentoUsuario(usuario.id).then(res => {
           this.estabelecimento = res
         })
       })

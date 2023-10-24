@@ -27,7 +27,7 @@ export class EstabelecimentoService {
   }
 
   getEstabelecimentoUsuario(idUsuario: number){
-    return this.httpCliente.get<nome>(`${this.API}/usuario/${idUsuario}`);
+    return this.httpCliente.get<nome>(`${this.API}/usuario/${idUsuario}`).toPromise();
   }
 
   postCriarEstabelecimento(estabelecimento : IEstabelecimento){
