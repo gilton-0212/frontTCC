@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../Security/Service/auth.service';
 import { Router } from '@angular/router';
+import { ProdutoService } from '../produto/produto.service';
+import { EstabelecimentoService } from '../estabelecimento/estabelecimento.service';
 
 @Component({
   selector: 'app-gerencia-estabelecimento',
@@ -11,11 +13,40 @@ export class GerenciaEstabelecimentoComponent implements OnInit {
 
   usuario!: any;
 
-  constructor(private login: AuthService,  private router: Router) { }
+  estabelecimento!: any;
 
-  ngOnInit(): void {
+  quantidadeVendida!: number;
+
+  quantidadeProduto!: number;
+
+  constructor(private login: AuthService, 
+     private router: Router,
+     private produtoService: ProdutoService,
+     private estabelecimentoService: EstabelecimentoService) { }
+
+  async ngOnInit(): Promise<void> {
     this.login.recuperarUsuario().then(res=>{
       this.usuario = res;
+
+    })
+
+    await this.login.recuperarUsuario().then(async usuario => {
+      await this.estabelecimentoService.getEstabelecimentoUsuario(usuario.id).then(res => {
+        this.estabelecimento = res
+      })
+     })
+  }
+
+  consultarTotaisProdutos(){
+    this.produtoService.produtosPorEstabelecimento(this.estabelecimento!.id).subscribe(res => {
+      this.quantidadeProduto = res.length;
+
+    })
+  }
+
+  consultarTotaisProdutosVendidos(){
+    this.produtoService.produtosVendidosEstabelecimento(this.estabelecimento!.id).subscribe(res => {
+      this.quantidadeVendida = res.length;
 
     })
   }

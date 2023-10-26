@@ -55,12 +55,12 @@ import { Product } from "./product.model";
 
     }
 
-    produtosVendidosEstabelecimento(id: number){
-      return this.httpCliente.get(`${this.API}/vendidos/estabelecimento/${id}`)
+    produtosVendidosEstabelecimento(id: number): Observable<any[]>{
+      return this.httpCliente.get<any[]>(`${this.API}/vendidos/estabelecimento/${id}`)
     }
 
-    produtosPorEstabelecimento(id: number){
-      return this.httpCliente.get(`${this.API}/estabelecimento/${id}`)
+    produtosPorEstabelecimento(id: number): Observable<any[]>{
+      return this.httpCliente.get<any[]>(`${this.API}/estabelecimento/${id}`)
     }
 
     deletarProduto(id: number | undefined){
