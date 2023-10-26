@@ -12,6 +12,7 @@ export class ComprasClienteComponent implements OnInit {
 
   cliente!: any;
   list!: any;
+  usuario!:any;
 
   constructor(private service: VendaService, private usuarioService: AuthService, private clienteService: ClienteService) { }
 
@@ -33,4 +34,14 @@ export class ComprasClienteComponent implements OnInit {
       console.log(res)
     })
   }
+
+  recuperarUser(){
+  this.usuarioService.recuperarUsuario().then(res => {
+    this.usuario = res;
+  })
 }
+
+  logout(){
+    this.usuarioService.logout();
+  }
+  }

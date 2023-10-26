@@ -56,4 +56,6 @@ export class VendaService {
     return this.httpCliente.get(`${this.API}/cliente/${id}`)
   }
 
+
+
 }
