@@ -69,9 +69,14 @@
               <thead>
                   <tr>
 
-                      <th>Produto</th>
-                      <th>Cliente</th>
-                      <th>Quantidade</th>
+
+                    <th>#</th>
+                    <th>data</th>
+                    <th>Produto</th>
+                    <th>Cliente</th>
+                    <th>Quantidade</th>
+                    <th>Valor</th>
+
 
 
                   </tr>
@@ -79,9 +84,12 @@
               <tbody>
                 <tr>
                   <tr *ngFor="let produto of list">
+                      <td>{{produto.idVenda}}</td>
+                      <td>{{produto.dataVenda | date : 'dd/MM/yyyy'}}</td>
                       <td>{{produto.nomeProduto}}</td>
                       <td>{{produto.nomeCliente}}</td>
                       <td>{{produto.quantidade}}</td>
+                      <td>{{produto.valorTotal | currency : 'BRL'}}</td>
 
                   </tr>
 
