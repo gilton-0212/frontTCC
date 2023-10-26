@@ -15,3 +15,9 @@
   height:32px;
   width:260px;
 }
+
+.imagemDeFundo{
+  background-image: url('https://blog.ciss.com.br/wp-content/uploads/2018/08/blog-ciss-layout-gondolas-supermercado.jpg');
+  width: 400px;
+  height: 400px;
+}

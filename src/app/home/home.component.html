@@ -30,13 +30,13 @@
                     <li class="nav-item" *ngIf="usuario?.role === 'Estabelecimento'">
                       <a routerLink="/meusprodutos" class="nav-link" href="">Produtos</a>
                     </li>
-                    <li class="nav-item" *ngIf="usuario!?.role === 'ADMIN'">
+                    <li class="nav-item"  *ngIf="usuario!?.role === 'ADMIN'">
                       <a routerLink="/gerencia" class="nav-link" href="">Gerência</a>
                     </li>
                     <li class="nav-item" *ngIf="usuario!?.role === 'ADMIN'">
                       <a routerLink="/gestao" class="nav-link" href="">Gestão</a>
                     </li>
-                    <li class="nav-item">
+                    <li class="nav-item" >
                       <a (click)="logout()" class="nav-link" href="#"><svg xmlns="http://www.w3.org/2000/svg" width="16"
                           height="16" fill="currentColor" class="bi bi-box-arrow-left" viewBox="0 0 16 16">
                           <path fill-rule="evenodd"
@@ -65,13 +65,16 @@
         </div>
       </section>
 
-      <div class="row">
-        <img src="assets/dia_de_feira.png" alt="Responsive image" width="180" height="150" alt="..." />
-      </div>
-    </div>
+<br>
+<br>
+<div class Align="right">
+
+  Olá, <u>{{usuario.nome}}</u>!  Aproveite as ofertas!
+</div>
+
+  </div>
     <app-produto-lista></app-produto-lista>
   </body>
-
   </html>
 </a>
 <a *ngIf="usuario!?.role === 'Estabelecimento'">

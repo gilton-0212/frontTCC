@@ -13,7 +13,7 @@
                       </div>
                       <div class="col-md-3 col-lg-3 col-xl-3">
                         <p class="lead fw-normal mb-2">{{produto.nome}}</p>
-                        <p><span class="text-muted">Preço: R$ {{produto.preco}} </span> </p>
+                        <p><span class="text-muted">Preço:  {{produto.preco | currency : 'BRL'}} </span> </p>
                         <p><span class="text-muted">Quantidade: {{produto.quantidade}} </span> </p>
                       </div>
 
@@ -28,7 +28,7 @@
           </section>
 		</div>
     <div class="col-md-3 col-lg-3 col-xl-3">
-      <h4>Total: {{valorTotal}}</h4>
+      <h4>Total: {{valorTotal | currency : 'BRL'}}</h4>
     </div>
     <p-button icon="pi pi-check" (click)="fazerVenda()" label="Finalizar Compra"
     styleClass="p-button-text"></p-button>

@@ -8,6 +8,8 @@
       <h2>As Melhores <b>Ofertas</b></h2>
     </div>
   </div>
+
+<div class="imagemDefundo">
 <section class="py-5">
   <div class="container px-4 px-lg-5 mt-5">
     <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-12 row-cols-xl-4 justify-content-left">
@@ -22,7 +24,8 @@
               <!-- Product name-->
               <h5 class="fw-bolder">{{produto.nome}}</h5>
               <!-- Product price-->
-              R$ {{produto.preco}}
+               {{ produto.preco | currency : 'BRL'}}
+
             </div>
           </div>
           <!-- Product actions-->
@@ -42,6 +45,7 @@
     </div>
   </div>
 </section>
+</div>
 
 
 <p-button *ngIf="carrinho.length > 0" (click)="showModalDialog()" icon="pi pi-shopping-cart" label="Carrinho"></p-button>

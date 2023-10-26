@@ -25,6 +25,7 @@ import { ProdutoModule } from './produto/produto.module';
 import { LoginComponent } from './Security/login/login.component';
 import { SecurityModule } from './Security/security.module';
 import { VendaModule } from './venda/venda.module';
+import { ProdutoListaComponent } from './produto/produto-lista/produto-lista.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { VendaModule } from './venda/venda.module';
   ],
   exports:[
     EstabelecimentoModule,
-    VendaModule
+    VendaModule,
+    ProdutoModule
 
   ],
   providers: [],
