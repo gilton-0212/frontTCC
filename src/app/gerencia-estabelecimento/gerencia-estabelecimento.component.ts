@@ -19,7 +19,7 @@ export class GerenciaEstabelecimentoComponent implements OnInit {
 
   quantidadeProduto!: number;
 
-  constructor(private login: AuthService, 
+  constructor(private login: AuthService,
      private router: Router,
      private produtoService: ProdutoService,
      private estabelecimentoService: EstabelecimentoService) { }
@@ -35,10 +35,14 @@ export class GerenciaEstabelecimentoComponent implements OnInit {
         this.estabelecimento = res
       })
      })
+
+     this.consultarTotaisProdutos();
+     this.consultarTotaisProdutosVendidos();
   }
 
   consultarTotaisProdutos(){
     this.produtoService.produtosPorEstabelecimento(this.estabelecimento!.id).subscribe(res => {
+      console.log('quantidade Produto: ', res)
       this.quantidadeProduto = res.length;
 
     })
@@ -46,6 +50,7 @@ export class GerenciaEstabelecimentoComponent implements OnInit {
 
   consultarTotaisProdutosVendidos(){
     this.produtoService.produtosVendidosEstabelecimento(this.estabelecimento!.id).subscribe(res => {
+      console.log('quantidade vendida: ', res)
       this.quantidadeVendida = res.length;
 
     })
