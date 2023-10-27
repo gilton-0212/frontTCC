@@ -17,6 +17,7 @@ import { ProdutoRoutes } from '../produto/produto.routing';
 import { VendaListaComponent } from './venda-lista/venda-lista.component';
 import { VendaProdutoListComponent } from './venda-produto-list/venda-produto-list.component';
 import { ComprasClienteComponent } from './compras-cliente/compras-cliente.component';
+import { VendaColetasComponent } from './venda-coletas/venda-coletas.component';
 
 
 
@@ -26,7 +27,8 @@ import { ComprasClienteComponent } from './compras-cliente/compras-cliente.compo
     VendaComponent,
     VendaListaComponent,
     VendaProdutoListComponent,
-    ComprasClienteComponent
+    ComprasClienteComponent,
+    VendaColetasComponent
   ],
   imports: [
     CommonModule,

@@ -41,6 +41,10 @@ export class VendaService {
     return this.httpCliente.get(`${this.API}/consultar`);
   }
 
+  consultarColetas():Observable<any> {
+    return this.httpCliente.get(`${this.API}/consultarColetar`);
+  }
+
   postCriarVenda(produto: IVenda) {
     return this.httpCliente.post<IVenda>(this.API, produto).pipe(take(1));
   }

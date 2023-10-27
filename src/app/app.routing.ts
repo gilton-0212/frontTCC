@@ -13,6 +13,7 @@ import { AuthGuard } from './Security/auth.guard';
 import { VendaListaComponent } from './venda/venda-lista/venda-lista.component';
 import { VendaProdutoListComponent } from './venda/venda-produto-list/venda-produto-list.component';
 import { ComprasClienteComponent } from './venda/compras-cliente/compras-cliente.component';
+import { VendaColetasComponent } from './venda/venda-coletas/venda-coletas.component';
 
 const APP_ROUTS: Routes=[
 
@@ -27,6 +28,7 @@ const APP_ROUTS: Routes=[
   { path: 'venda-lista', component: VendaListaComponent, canActivate: [AuthGuard]},
   { path: 'produtos-vendidos', component: VendaProdutoListComponent, canActivate: [AuthGuard]},
   { path: 'compras', component: ComprasClienteComponent , canActivate: [AuthGuard]},
+  { path: 'coletas', component: VendaColetasComponent , canActivate: [AuthGuard]},
   { path: '', component: LoginComponent, canActivate: [AuthGuard]}
 
 ];
