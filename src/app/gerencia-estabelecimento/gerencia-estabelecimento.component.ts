@@ -25,12 +25,9 @@ export class GerenciaEstabelecimentoComponent implements OnInit {
      private estabelecimentoService: EstabelecimentoService) { }
 
   async ngOnInit(): Promise<void> {
-    this.login.recuperarUsuario().then(res=>{
-      this.usuario = res;
-
-    })
 
     await this.login.recuperarUsuario().then(async usuario => {
+      this.usuario = usuario
       await this.estabelecimentoService.getEstabelecimentoUsuario(usuario.id).then(res => {
         this.estabelecimento = res
       })

@@ -14,10 +14,13 @@ export class ComprasClienteComponent implements OnInit {
   list!: any;
   usuario!:any;
 
+  usuarioLogado: any;
+
   constructor(private service: VendaService, private usuarioService: AuthService, private clienteService: ClienteService) { }
 
   async ngOnInit(): Promise<void> {
     await this.usuarioService.recuperarUsuario().then(async usuario => {
+      this.usuarioLogado = usuario
       await this.clienteService.getClienteUsuario(usuario.id).then(res => {
         this.cliente = res
       })

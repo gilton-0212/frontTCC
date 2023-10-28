@@ -4,6 +4,7 @@ import { VendaService } from '../venda/venda.service';
 import { Filter } from '../models/filter';
 import { ClienteService } from '../cliente/cliente.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../Security/Service/auth.service';
 
 @Component({
   selector: 'app-hub',
@@ -21,10 +22,14 @@ export class HubComponent implements OnInit {
     private estabelecimentoService: EstabelecimentoService,
     private vendaService: VendaService,
     private clientesService: ClienteService,
-    private router: Router
+    private router: Router,
+    private login: AuthService
   ) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this.login.recuperarUsuario().then(async usuario => {
+      this.usuario = usuario
+     })
     this.consultarTotalEstabelecimento();
     this.consultarTotalVendas();
     this.consultarUsuarios();
