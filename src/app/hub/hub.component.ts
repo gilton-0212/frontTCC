@@ -41,7 +41,7 @@ export class HubComponent implements OnInit {
       this.quantidadeEstabelecimento = res.length
     })
   }
-  
+
   consultarTotalVendas(){
     this.vendaService.getTodasVendas(new Filter()).subscribe(res => {
       this.quantidadeVendas = res.totalElements
@@ -64,6 +64,9 @@ export class HubComponent implements OnInit {
 
   irVendas(){
     this.router.navigate(['/venda-lista'])
+  }
+  irColetas(){
+    this.router.navigate(['/coletas'])
   }
 
 }

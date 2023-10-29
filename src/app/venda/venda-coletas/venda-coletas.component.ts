@@ -13,7 +13,8 @@ export class VendaColetasComponent implements OnInit {
   vendas!: any []
 
   status = [
-    { label: 'PREPARAR', value: 'PREPARAR' },
+    { label: '-', value: 'PREPARAR' },
+    { label: 'A COLETAR', value: 'PREPARAR' },
     { label: 'SEPARADO', value: 'SEPARADO' },
     { label: 'COLETADO', value: 'COLETADO' },
     { label: 'ENTREGUE', value: 'ENTREGUE' },
@@ -21,10 +22,10 @@ export class VendaColetasComponent implements OnInit {
   ]
 
   status1 = [
-    { label: 'MOTO BOY1', value: 'MOTO BOY1' },
-    { label: 'MOTO BOY2', value: 'MOTO BOY2' },
-    { label: 'MOTO BOY3', value: 'MOTO BOY3' },
-    { label: 'MOTO BOY4', value: 'MOTO BOY4' },
+    { label: 'COLET.1', value: 'MOTO BOY1' },
+    { label: 'COLET.2', value: 'MOTO BOY2' },
+    { label: 'COLET.3', value: 'MOTO BOY3' },
+    { label: 'COLET.4', value: 'MOTO BOY4' },
 
   ]
 

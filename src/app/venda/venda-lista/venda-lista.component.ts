@@ -14,9 +14,10 @@ export class VendaListaComponent implements OnInit {
   vendas!: any []
 
   status = [
+    { label: '-' },
+    { label: 'COLETADO', value: 'COLETADO' },
     { label: 'PREPARAR', value: 'PREPARAR' },
     { label: 'SEPARADO', value: 'SEPARADO' },
-    { label: 'COLETADO', value: 'COLETADO' },
     { label: 'ENTREGUE', value: 'ENTREGUE' },
 
   ]
