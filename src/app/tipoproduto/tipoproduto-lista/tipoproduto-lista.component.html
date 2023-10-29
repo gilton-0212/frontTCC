@@ -5,12 +5,12 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <body>
-<section>
-  <div class="col col-md-4">
-    <header>
-      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <div class="container-fluid">
-          <a class="navbar-brand" routerLink="/gestao" href="#">GESTÃO</a>
+  <section>
+    <div class="col col-md-4">
+      <header>
+        <nav class="navbar navbar-expand-md navbar-dark fixed-top " style="background-color: #0A1437">
+          <div class="container-fluid">
+            <a class="navbar-brand" href="/gestao"><img src="assets/+perto-cabeçario.png" Width="120" Height="43" /></a>
           <button
             class="navbar-toggler"
             type="button"
@@ -22,35 +22,52 @@
           >
             <span class="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
-              <li class="nav-item">
-                <a routerLink="/cliente" class="nav-link" href="#"
-                  >Coletas</a
-                >
-              </li>
-              <li class="nav-item">
-                <a routerLink="/venda-lista" class="nav-link" href="#"
-                  >Entregas</a
-                >
-              </li>
-              <li class="nav-item">
-                <a routerLink="/tipoestabelecimento" class="nav-link"
-                  >Categorias de Estabelecimento</a
-                >
-              </li>
-              <li class="nav-item">
-                <a routerLink="/estabelecimento" class="nav-link" href="#"
-                  >Estabelecimentos</a
-                >
-              </li>
-              <li class="nav-item">
-                <a routerLink="/tipoproduto" class="nav-link" href="#"
-                  >Categorias de Produtos</a
-                >
-              </li>
-            </ul>
-            <!--
+          <a class="navbar-brand" href="/gestao">GESTÃO</a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+              <ul class="navbar-nav me-auto mb-2 mb-md-0">
+
+                <li class="nav-item">
+                  <a routerLink="/coletas" style="color:rgb(255, 255, 255)" class="nav-link" href="#"
+                    >Coletas</a
+                  >
+                </li>
+
+                <li class="nav-item">
+                  <a routerLink="/venda-lista" style="color:rgb(255, 255, 255)" class="nav-link" href="#"
+                    >Entregas</a
+                  >
+                </li>
+
+
+                <li class="nav-item">
+                  <a routerLink="/tipoestabelecimento" style="color:rgb(255, 255, 255)" class="nav-link"
+                    >Categorias de Estabelecimento</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/estabelecimento" style="color:rgb(255, 255, 255)" class="nav-link" href="#"
+                    >Estabelecimentos</a
+                  >
+                </li>
+                <li class="nav-item">
+                  <a routerLink="/tipoproduto" style="color:rgb(255, 255, 255)" class="nav-link" href="#"
+                    >Categorias de Produtos</a
+                  >
+                </li>
+
+              </ul>
+              <!--
             <form class="d-flex">
               <input
                 class="form-control me-2"
@@ -62,12 +79,13 @@
                 Pesquise
               </button>
             </form>-->
+            </div>
           </div>
-        </div>
-      </nav>
-    </header>
-  </div>
-</section>
+        </nav>
+      </header>
+    </div>
+  </section>
+<br>
 <br>
 <br>
 <section>
