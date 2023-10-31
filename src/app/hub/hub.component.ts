@@ -69,4 +69,8 @@ export class HubComponent implements OnInit {
     this.router.navigate(['/coletas'])
   }
 
+  logout(){
+    this.login.logout();
+  }
+
 }

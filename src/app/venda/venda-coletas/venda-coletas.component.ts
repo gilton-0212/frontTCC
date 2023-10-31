@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { VendaService } from '../venda.service';
+import { AuthService } from 'src/app/Security/Service/auth.service';
 
 @Component({
   selector: 'app-venda-coletas',
@@ -37,7 +38,7 @@ export class VendaColetasComponent implements OnInit {
 
   formulario!: FormGroup;
 
-  constructor(private vendaService: VendaService, private form: FormBuilder,) { }
+  constructor(private login: AuthService,private vendaService: VendaService, private form: FormBuilder,) { }
 
   ngOnInit(): void {
     this.consultarTotalVendas();
@@ -54,5 +55,8 @@ export class VendaColetasComponent implements OnInit {
     this.vendaService.atualizarStatusVenda(venda.id, venda.status).subscribe(res => {
       alert('Status alterado com Sucesso!')
     })
+  }
+  logout(){
+    this.login.logout();
   }
   }

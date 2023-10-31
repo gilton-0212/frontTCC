@@ -5,6 +5,7 @@ import { TipoestabelecimentoService } from './../../tipoestabelecimento/tipoesta
 import { TipoestabelecimentoRoutes } from './../../tipoestabelecimento/tipoestabelecimento.routing';
 import { Component, OnInit } from '@angular/core';
 import { IEstabelecimento } from '../IEstabelecimento';
+import { AuthService } from 'src/app/Security/Service/auth.service';
 
 @Component({
   selector: 'app-estabelecimento-lista',
@@ -20,6 +21,7 @@ export class EstabelecimentoListaComponent implements OnInit {
 
   constructor(
 
+    private login: AuthService,
     private estabelecimentoService : EstabelecimentoService,
     private router : Router,
 
@@ -41,6 +43,9 @@ export class EstabelecimentoListaComponent implements OnInit {
     this.estabelecimentoService.deletarEstabelecimento(this.estabelecimentosSelecionado.id).subscribe(
       sucesso => {alert('Estabeleciemnto Removido com Sucesso'); this.estabelecimentoService.getTodosEstabelecimento().subscribe(dados => this.estabelecimento = dados)
   });
+  }
+  logout(){
+    this.login.logout();
   }
 
 }

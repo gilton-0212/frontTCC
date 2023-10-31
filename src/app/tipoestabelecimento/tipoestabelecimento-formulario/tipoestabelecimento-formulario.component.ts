@@ -2,6 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TipoestabelecimentoService } from './../tipoestabelecimento.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from 'src/app/Security/Service/auth.service';
 
 @Component({
   selector: 'app-tipoestabelecimento-formulario',
@@ -16,6 +17,7 @@ export class TipoestabelecimentoFormularioComponent implements OnInit {
   submitted = false;
 
   constructor(
+    private login: AuthService,
     private form: FormBuilder,
     private tipoestabelecimentoserice : TipoestabelecimentoService,
     private router : Router,
@@ -92,6 +94,10 @@ export class TipoestabelecimentoFormularioComponent implements OnInit {
     this.submitted = false;
     this.formulario.reset();
 
+  }
+
+  logout(){
+    this.login.logout();
   }
 
 }

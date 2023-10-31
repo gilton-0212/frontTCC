@@ -16,7 +16,7 @@ export class VendaProdutoListComponent implements OnInit {
 
   estabelecimento!: any;
 
-  constructor(private produtoService: ProdutoService, private usuarioService: AuthService, private estabelecimentoService: EstabelecimentoService) {
+  constructor(private login: AuthService, private produtoService: ProdutoService, private usuarioService: AuthService, private estabelecimentoService: EstabelecimentoService) {
    }
 
   async ngOnInit(): Promise<void> {
@@ -37,6 +37,9 @@ export class VendaProdutoListComponent implements OnInit {
       console.log(res)
       console.log("teste")
     })
+  }
+  logout(){
+    this.login.logout();
   }
 
 }

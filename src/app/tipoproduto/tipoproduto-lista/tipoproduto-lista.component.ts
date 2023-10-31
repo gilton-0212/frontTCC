@@ -3,6 +3,7 @@ import { TipoprodutoService } from './../tipoproduto.service';
 
 import { Component, OnInit } from '@angular/core';
 import { ITipoproduto } from '../ITipoproduto';
+import { AuthService } from 'src/app/Security/Service/auth.service';
 
 
 @Component({
@@ -16,6 +17,7 @@ export class TipoprodutoListaComponent implements OnInit {
   tipoprodutoSelecionado! : ITipoproduto;
 
   constructor(
+    private login: AuthService,
   private tipoprodutoService: TipoprodutoService,
   private router : Router
     ) { }
@@ -34,6 +36,9 @@ export class TipoprodutoListaComponent implements OnInit {
     this.tipoprodutoService.deletarTipoproduto(this.tipoprodutoSelecionado.id).subscribe(
       sucesso => { alert('Categoria Removida com Sucesso'); this.tipoprodutoService.getTodosTipoproduto().subscribe(dados => this.tipoproduto = dados)
   });
+  }
+  logout(){
+    this.login.logout();
   }
 
 

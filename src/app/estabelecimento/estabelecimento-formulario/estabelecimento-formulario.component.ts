@@ -5,6 +5,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Component, OnInit } from '@angular/core';
 import { EstabelecimentoService } from '../estabelecimento.service';
 import { nome } from 'src/app/models/nome.model';
+import { AuthService } from 'src/app/Security/Service/auth.service';
 
 @Component({
   selector: 'app-estabelecimento-formulario',
@@ -20,6 +21,8 @@ export class EstabelecimentoFormularioComponent implements OnInit {
   tipoEstabelecimento! : nome[];
 
   constructor(
+
+    private login: AuthService,
     private form: FormBuilder,
     private estabelecimentoService : EstabelecimentoService,
     private router : Router,
@@ -124,5 +127,8 @@ export class EstabelecimentoFormularioComponent implements OnInit {
     });
   }
 
+  logout(){
+    this.login.logout();
+  }
 
 }

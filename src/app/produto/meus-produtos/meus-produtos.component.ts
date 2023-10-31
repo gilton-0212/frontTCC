@@ -20,7 +20,7 @@ export class MeusProdutosComponent implements OnInit {
 
   usuario: any;
 
-  constructor(private service: ProdutoService, private usuarioService: AuthService, private estabelecimentoService: EstabelecimentoService) { }
+  constructor(private login: AuthService ,private service: ProdutoService, private usuarioService: AuthService, private estabelecimentoService: EstabelecimentoService) { }
 
   async ngOnInit(): Promise<void> {
     await this.usuarioService.recuperarUsuario().then(async usuario => {
@@ -40,6 +40,10 @@ export class MeusProdutosComponent implements OnInit {
       this.list = res;
       console.log(res)
     })
+  }
+
+  logout(){
+    this.login.logout();
   }
 
 

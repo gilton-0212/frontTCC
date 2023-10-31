@@ -59,6 +59,7 @@ export class ProdutoFormComponent implements OnInit {
   usuario!: any;
 
   constructor(
+    private login: AuthService,
     private produtoService: ProdutoService,
     private form: FormBuilder,
     private tipoProdutoService: TipoprodutoService,
@@ -147,6 +148,10 @@ export class ProdutoFormComponent implements OnInit {
       error => console.error(error)
     );
 
+  }
+
+  logout(){
+    this.login.logout();
   }
 
 }

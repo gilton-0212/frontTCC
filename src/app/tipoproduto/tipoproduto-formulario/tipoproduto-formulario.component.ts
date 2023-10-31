@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TipoprodutoService } from '../tipoproduto.service';
 import { ActivatedRoute, Route, Router } from '@angular/router';
+import { AuthService } from 'src/app/Security/Service/auth.service';
 
 @Component({
   selector: 'app-tipoproduto-formulario',
@@ -16,6 +17,7 @@ export class TipoprodutoFormularioComponent implements OnInit {
   submitted = false;
 
   constructor(
+    private login: AuthService,
     private form : FormBuilder,
     private tipoprodutooservice : TipoprodutoService,
     private router : Router,
@@ -91,6 +93,10 @@ export class TipoprodutoFormularioComponent implements OnInit {
     this.submitted = false;
     this.formulario.reset();
 
+  }
+
+  logout(){
+    this.login.logout();
   }
   }
 

@@ -3,6 +3,7 @@ import { VendaService } from '../venda.service';
 import { VendaResum } from '../IVenda';
 import { Filter } from 'src/app/models/filter';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { AuthService } from 'src/app/Security/Service/auth.service';
 
 @Component({
   selector: 'app-venda-lista',
@@ -38,7 +39,7 @@ export class VendaListaComponent implements OnInit {
 
   formulario!: FormGroup;
 
-  constructor( private vendaService: VendaService, private form: FormBuilder,) { }
+  constructor(private login: AuthService, private vendaService: VendaService, private form: FormBuilder,) { }
 
   ngOnInit(): void {
     this.consultarTotalVendas();
@@ -55,6 +56,10 @@ export class VendaListaComponent implements OnInit {
     this.vendaService.atualizarStatusVenda(venda.id, venda.status).subscribe(res => {
       alert('Status alterado com Sucesso!')
     })
+  }
+
+  logout(){
+    this.login.logout();
   }
 
 }
